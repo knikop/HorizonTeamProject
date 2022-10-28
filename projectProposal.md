@@ -27,3 +27,6 @@ We will be building a Marketplace/Store Web application were users can find any 
 
 ## Implementation:
 - We estimate that this Web Application will take us approximately 300 hours to complete (150 hrs each)
+
+
+###Project Github Repository Link: https://github.com/knikop/HorizonTeamProject
