@@ -1,1 +1,3 @@
-<a href="/User/index">login</a>
+
+
+<a href="/Product/index">Main Page</a>

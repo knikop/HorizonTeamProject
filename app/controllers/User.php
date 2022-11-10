@@ -11,6 +11,8 @@ class User extends \app\core\Controller{
 			if(password_verify($_POST['password'], $user->password_hash)){
 				$_SESSION['user_id'] = $user->user_id;
 				$_SESSION['email'] = $user->email;
+				$profile = $user->getProfile();
+				$_SESSION['profile_id'] = $profile->profile_id;
 				header('location:/Main/index');
 			}else{
 				header('location:/User/index?error=Wrong username/password combination!');
@@ -24,7 +26,7 @@ class User extends \app\core\Controller{
 	public function logout(){
 		//To protect my account, as a user, I can logout of the application.
 		session_destroy();
-		header('location:/Main/index');
+		header('location:/Product/index');
 	}
 
 	public function register(){
@@ -39,7 +41,7 @@ class User extends \app\core\Controller{
 					$user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 					$_SESSION['user_id'] = $user->insert();
 					$_SESSION['email'] = $_POST['email'];
-					header('location:/User/index');
+					header('location:/Profile/create?message=Before shopping, please create a profile for your account');
 				}else{
 					header('location:/User/register?error=The email "'.$_POST['email'].'" is already in use. Select another.');
 				}
@@ -50,7 +52,6 @@ class User extends \app\core\Controller{
 		}else{
 			$this->view('User/register');
 		}
-
 	}
 
 }

@@ -15,12 +15,21 @@ class User extends \app\core\Model{
 		return $STMT->fetch();
 	}
 
+	public function getProfile(){
+		$SQL = "SELECT * FROM profile WHERE user_id=:user_id";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['user_id'=>$this->user_id]);
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Profile');
+		return $STMT->fetch();
+	}
+
 	public function insert(){
 		if ($this->isValid()){
 			$SQL = "INSERT INTO user(email, password_hash) VALUES (:email, :password_hash)";
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute(['email'=>$this->email,
 						'password_hash'=>$this->password_hash]);
+		return self::$_connection->lastInsertId();
 		}
 	}
 

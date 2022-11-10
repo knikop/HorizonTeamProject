@@ -17,7 +17,7 @@ if(isset($_GET['error'])){
 ?>
 
 <form action='' method='post'>
-	<label>Username:<input type="email" name="email" /></label><br>
+	<label>Email:<input type="email" name="email" /></label><br>
 	<label>Password:<input type="password" name="password" /></label><br>
 	<input type="submit" name="action" value="Login" />
 </form>
