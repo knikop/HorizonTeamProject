@@ -1,5 +1,5 @@
 
-<?php $this->view('header', 'Instasham'); ?>
+<?php $this->view('navbar'); ?>
 <?php
 if(isset($_GET['message'])){
 ?>
@@ -22,7 +22,7 @@ if(isset($_GET['message'])){
 		<label class="col-sm-2 col-form-label">City:<input class='form-control' type="text" name="city" placeholder="last name"/></label>
 	</div>
     <div class="form-group">
-		<label class="col-sm-2 col-form-label">Zipcode:<input class='form-control' type="text" name="city" placeholder="last name"/></label>
+		<label class="col-sm-2 col-form-label">Zipcode:<input class='form-control' type="text" name="zipcode" placeholder="last name"/></label>
 	</div>
     <div class="form-group">
 		<label class="col-sm-2 col-form-label">State:<input class='form-control' type="text" name="state" placeholder="last name"/></label>

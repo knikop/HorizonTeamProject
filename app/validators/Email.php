@@ -7,3 +7,4 @@ class Email extends \app\core\Validator{
 		return filter_var($data, FILTER_VALIDATE_EMAIL);
 	}
 }
+

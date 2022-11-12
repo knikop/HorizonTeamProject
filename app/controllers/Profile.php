@@ -8,14 +8,14 @@ class Profile extends \app\core\Controller{
 		//To manage my online content, as a user, I can view my profile page.
 		$profile = new \app\models\Profile();
 		$profile = $profile->get($_SESSION['profile_id']);
-		$this->view('Profile/details', $profile);
+		$this->view('Profile/detail', $profile);
 	}
 
-	public function details($profile_id){
+	public function detail($profile_id){
 		//To find interesting publications, as a person or user, I can view other user profile pages.
 		$profile = new \app\models\Profile();
 		$profile = $profile->get($profile_id);
-		$this->view('Profile/details', $profile);
+		$this->view('Profile/detail', $profile);
 	}
 
 	#[\app\filters\Login]
@@ -25,9 +25,13 @@ class Profile extends \app\core\Controller{
 		$profile = new \app\models\Profile();
 		$profile = $profile->get($_SESSION['profile_id']);
 		if(isset($_POST['action'])){
-			$profile->first_name = $_POST['first_name'];
-			$profile->middle_name = $_POST['middle_name'];
-			$profile->last_name = $_POST['last_name'];
+			$profile->fullname = $_POST['fullname'];
+			$profile->address = $_POST['address'];
+			$profile->city = $_POST['city'];
+            $profile->zipcode = $_POST['zipcode'];
+            $profile->state = $_POST['state'];
+            $profile->country = $_POST['country'];
+			$profile->user_id = $_SESSION['user_id'];
 			$profile->update();
 			header('location:/Profile/index');
 		}else{
