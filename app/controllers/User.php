@@ -59,6 +59,7 @@ class User extends \app\core\Controller{
 			header('location:/User/index');
 			return;
 		}
+		
 		//if the form is sent
 		if(isset($_POST['action'])){
 			$currentCode = $_POST['currentCode'];

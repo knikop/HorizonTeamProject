@@ -18,8 +18,8 @@ class Profile extends \app\core\Controller{
 		$this->view('Profile/detail', $profile);
 	}
 
-	#[\app\filters\Login]
-	#[\app\filters\Profile]
+	// #[\app\filters\Login]
+	// #[\app\filters\Profile]
 	public function edit(){
 		//To manage my profile, as a user, I can edit my profile information.
 		$profile = new \app\models\Profile();
@@ -31,13 +31,11 @@ class Profile extends \app\core\Controller{
             $profile->zipcode = $_POST['zipcode'];
             $profile->state = $_POST['state'];
             $profile->country = $_POST['country'];
-			$profile->user_id = $_SESSION['user_id'];
 			$profile->update();
 			header('location:/Profile/index');
 		}else{
 			$this->view('Profile/edit', $profile);
 		}
-
 	}
 
 	#[\app\filters\Login]
