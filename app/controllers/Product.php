@@ -4,9 +4,9 @@ namespace app\controllers;
 class Product extends \app\core\Controller{
 
 	public function index(){
-		$publication = new \app\models\Product();
-		$publications = $publication->getAll();
-		$this->view('Product/index', $publications);
+		$product = new \app\models\Product();
+		$products = $product->getAll();
+		$this->view('Product/index', $products);
 	}
 
     public function search(){
@@ -14,5 +14,18 @@ class Product extends \app\core\Controller{
 		$product = new \app\models\Product();
 		$products = $product->search($_GET['search_term']);
 		$this->view('Product/index', $product);
+	}
+
+	public function addToCart($product_id){
+
+
+		if(isset($_POST['action'])){
+			$product = new \app\models\Product();
+			$cart = new \app\models\Cart();
+			
+			header('location:/Product/index');
+		}
+		else
+			$this->view('Product/index');
 	}
 }

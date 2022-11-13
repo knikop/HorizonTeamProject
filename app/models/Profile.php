@@ -7,7 +7,7 @@ class Profile extends \app\core\Model{
 	public $fullname;
 	#[\app\validators\Zipcode]
 	public $zipcode;
-	
+
 	
 	public function __toString(){
 		return "$this->fullname";
