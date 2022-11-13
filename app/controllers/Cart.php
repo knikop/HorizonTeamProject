@@ -2,7 +2,6 @@
 namespace app\controllers;
 
 class Main extends \app\core\Controller{
-
 	public function index(){
         $cart = new \app\models\Cart();
 		$carts = $cart->getAll();
