@@ -18,7 +18,6 @@ class Product extends \app\core\Controller{
 
 	public function addToCart($product_id){
 
-
 		if(isset($_POST['action'])){
 			$product = new \app\models\Product();
 			$cart = new \app\models\Cart();
@@ -27,5 +26,17 @@ class Product extends \app\core\Controller{
 		}
 		else
 			$this->view('Product/index');
+	}
+
+	public function addToWishlist($product_id){
+
+		if(isset($_POST['action'])){
+			$product = new \app\models\Product();
+			$wishlist = new \app\models\Wishlist();
+			
+			header('location:/Wishlist/index');
+		}
+		else
+			$this->view('Wishlist/index');
 	}
 }
