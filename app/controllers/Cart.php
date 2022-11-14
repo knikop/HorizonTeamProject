@@ -13,4 +13,8 @@ class Cart extends \app\core\Controller{
         $cart->deleteAt($cart_id);
         header('location:/Cart/index');
 	}
+
+    public function remove_from_cart($product_id){
+        
+	}
 }

@@ -13,4 +13,8 @@ class Wishlist extends \app\core\Controller{
         $wishlist->deleteAt($wishlist_id);
         header('location:/Wishlist/index');
 	}
+
+    public function remove_from_wishlist($product_id){
+        
+	}
 }
