@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2022 at 01:22 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Nov 21, 2022 at 01:58 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,11 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cart` (
   `cart_id` int(11) NOT NULL,
-  `wishlist_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `product_name` varchar(100) NOT NULL,
   `cost_price` int(11) NOT NULL,
-  `total_price` int(11) NOT NULL
+  `qty` int(11) NOT NULL,
+  `status` enum('cart','paid','shipped') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -47,20 +46,21 @@ CREATE TABLE `product` (
   `product_name` varchar(100) NOT NULL,
   `cost_price` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `description` varchar(100) NOT NULL
+  `description` varchar(100) NOT NULL,
+  `image` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`product_id`, `product_name`, `cost_price`, `quantity`, `description`) VALUES
-(1, '[Gaming Chair]', 500, 50, '[A gaming chair]'),
-(2, '[Alienware Gaming mouse]', 169, 200, '[A gaimng mouse]'),
-(3, '[Among Us]', 5, 500, '[Find the imposter]'),
-(4, '[Apex Legends]', 0, 300, '[Champions!!!!!!]'),
-(5, '[Call of Duty: MW2 Vault Edition]', 120, 800, '[The newest and highly anticipated call of duty game]'),
-(6, '[Call of Duty: MW2]', 90, 900, '[The newest and highly anticipated call of duty game]');
+INSERT INTO `product` (`product_id`, `product_name`, `cost_price`, `quantity`, `description`, `image`) VALUES
+(1, '[Gaming Chair]', 500, 50, '[A gaming chair]', 'https://multimedia.bbycastatic.ca/multimedia/products/250x250/158/15833/15833808.jpeg'),
+(2, '[Alienware Gaming mouse]', 169, 200, '[A gaimng mouse]', 'https://multimedia.bbycastatic.ca/multimedia/products/250x250/158/15833/15833808.jpeg'),
+(3, '[Among Us]', 5, 500, '[Find the imposter]', 'https://multimedia.bbycastatic.ca/multimedia/products/250x250/158/15833/15833808.jpeg'),
+(4, '[Apex Legends]', 0, 300, '[Champions!!!!!!]', 'https://multimedia.bbycastatic.ca/multimedia/products/250x250/158/15833/15833808.jpeg'),
+(5, '[Call of Duty: MW2 Vault Edition]', 120, 800, '[The newest and highly anticipated call of duty game]', 'https://multimedia.bbycastatic.ca/multimedia/products/250x250/158/15833/15833808.jpeg'),
+(6, '[Call of Duty: MW2]', 90, 900, '[The newest and highly anticipated call of duty game]', 'https://multimedia.bbycastatic.ca/multimedia/products/250x250/158/15833/15833808.jpeg');
 
 -- --------------------------------------------------------
 
@@ -71,13 +71,20 @@ INSERT INTO `product` (`product_id`, `product_name`, `cost_price`, `quantity`, `
 CREATE TABLE `profile` (
   `profile_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `adresse` varchar(100) NOT NULL,
+  `fullname` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
   `city` varchar(100) NOT NULL,
   `zipcode` varchar(6) NOT NULL,
   `state` varchar(100) NOT NULL,
   `country` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `profile`
+--
+
+INSERT INTO `profile` (`profile_id`, `user_id`, `fullname`, `address`, `city`, `zipcode`, `state`, `country`) VALUES
+(2, 2, 'Saqib', '10113 avenue de cobourg', 'Quebec', 'H1H4W7', 'QC', 'Canada');
 
 -- --------------------------------------------------------
 
@@ -96,7 +103,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `email`, `password_hash`) VALUES
-(1, '2003knikop@gmail.com', '$2y$10$5KEq/qW0GbPlQDEUpqjLOujoAsv5wLD5A3Q8Q1clq6/Eg3g9XY4O.');
+(1, '2003knikop@gmail.com', '$2y$10$5KEq/qW0GbPlQDEUpqjLOujoAsv5wLD5A3Q8Q1clq6/Eg3g9XY4O.'),
+(2, 'admin@email.com', '$2y$10$6Oc4bkrVjS3MGWhtwMhZUuL5gaNNpZrzOtGwxeTeMw18GZ8VBI5Ty'),
+(3, 'saqib@email.com', '$2y$10$JhB36vsOhds8x1w5FGFWJe3jJ.BodRKWq7cSbUapkzGi2yyMMlsiG');
 
 -- --------------------------------------------------------
 
@@ -121,7 +130,6 @@ CREATE TABLE `wishlist` (
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`cart_id`),
-  ADD KEY `cart_id_2` (`wishlist_id`),
   ADD KEY `product_id` (`product_id`);
 
 --
@@ -170,13 +178,13 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
