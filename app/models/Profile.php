@@ -3,7 +3,7 @@ namespace app\models;
 
 class Profile extends \app\core\Model{
 
-	#[\app\validators\Name]
+	#[\app\validators\NonEmpty]
 	public $fullname;
 	#[\app\validators\Zipcode]
 	public $zipcode;
@@ -57,6 +57,7 @@ class Profile extends \app\core\Model{
 							'state'=>$this->state,
 							'country'=>$this->country,
 							'profile_id'=>$this->profile_id]);
-		}
 	}
+}
+
 }

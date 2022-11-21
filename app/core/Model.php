@@ -34,6 +34,8 @@ class Model{
 				$test = $attribute->newInstance();
 				//run the method that executes the test and get the result
 				if(!$test->isValidData($property->getValue($this))){
+					echo "false";
+					
 					return false;
 				}
 			}

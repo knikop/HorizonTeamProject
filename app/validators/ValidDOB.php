@@ -10,5 +10,4 @@ class ValidDOB extends \app\core\Validator{
 		$interval = date_diff($now, $then);
 		return $interval->y < 500;
 	}
-
 }

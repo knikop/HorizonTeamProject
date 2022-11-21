@@ -9,8 +9,8 @@
 
 <body>
 	<div class='container'>
-		<a href='/Main/index'>Horizon</a>
-		<form action="/Main/search" method="get" style='display:inline-block'>					
+		<a href='/Product/index'>Horizon</a>
+		<form action="/Product/search" method="get" style='display:inline-block'>					
 			<div class="input-group">
 			    <input type="search" name='search_term' class="form-control" placeholder="Search..." />
 			  <button type="submit" class="btn btn-primary" value="Search"><i class="bi-search"></i></button>
