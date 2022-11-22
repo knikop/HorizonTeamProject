@@ -21,7 +21,19 @@ class Product extends \app\core\Controller{
 		if(isset($_POST['action'])){
 			$product = new \app\models\Product();
 			$cart = new \app\models\Cart();
-			
+			$cart->findUserInCart($_SESSION['user_id']);
+			if($cart == null) {
+				$cart = new \app\models\Cart();
+				$cart->user_id = $_SESSION['user_id'];
+				$cart->status = 'cart';
+				$cart->cart_id = $cart->insert();
+			}
+			$newItem = new \app\models\Cart_detail();
+			$newItem->cart_id = $cart->cart_id;
+			$newItem->product_id = $product_id;
+			$newItem->total_price = $cart->get($product_id)->cost_price;
+			$newItem->qty = 1;
+			$newItem->insert();
 			header('location:/Product/index');
 		}
 		else

@@ -3,41 +3,52 @@ namespace app\models;
 
 class Cart extends \app\core\Model{
 	public function getAll(){
-		//get all newest first
-		$SQL = "SELECT * FROM product";
+		$SQL = "SELECT * FROM cart";
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute();
-		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
-		return $STMT->fetchAll();
-	}
-
-	public function search($searchTerm){
-		//get all newest first
-		$SQL = "SELECT * FROM cart WHERE product_name LIKE :searchTerm";
-		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['searchTerm'=>"%$searchTerm%"]);
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Cart');
 		return $STMT->fetchAll();
 	}
 
-	public function get($product_id){
-		$SQL = "SELECT * FROM product WHERE product_id=:product_id";
+	public function insert(){
+		$SQL = "INSERT INTO cart(cost_price, qty, status, user_id) VALUES (:cost_price, :qty, :status, :user_id)";
 		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['product_id'=>$product_id]);
-		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
+		$STMT->execute(['cost_price'=>$this->cost_price,
+						'qty'=>$this->qty,
+						'status'=>$this->status,
+						'user_id'=>$this->user_id,]);
+		return self::$_connection->lastInsertId();
+	}
+
+	public function get($cart_id){
+		$SQL = "SELECT * FROM cart WHERE cart_id=:cart_id";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['cart_id'=>$cart_id]);
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Cart');
 		return $STMT->fetch();
 	}
 
-    public function insert(){
-			$SQL = "INSERT INTO cart(product_id, product_name, cost_price, total_price, description, image)
-            VALUES (:product_id, :product_name, :cost_price, :total_price, :description, :image)";
+	public function updateStatus(){
+			$SQL = "UPDATE profile SET status=:staus WHERE cart_id=:cart_id";
 			$STMT = self::$_connection->prepare($SQL);
-			$STMT->execute(['product_id'=>$this->product_id,
-						'product_name'=>$this->product_name,
-                        'cost_price'=>$this->cost_price,
-                        'total_price'=>$this->total_price,
-                        'description'=>$this->description,
-                        'image'=>$this->image]);
-			return self::$_connection->lastInsertId();
+			$STMT->execute(['cost_price'=>$this->cost_price,
+			'qty'=>$this->qty,
+			'status'=>$this->status,
+			'user_id'=>$this->user_id,]);
+	}
+
+	public function delete() {
+		$SQL = "DELETE FROM cart WHERE cart_id=:cart_id";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['cart_id'=>$this->cart_id]);
+	}
+
+	public function findCartForUser($user_id){
+		$SQL = "SELECT * FROM cart WHERE user_id = :user_id && status = :status";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['user_id'=>$user_id,
+						'status'=>'cart']);
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Cart');
+		return $STMT->fetch();
 	}
 }
