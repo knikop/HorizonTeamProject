@@ -3,11 +3,14 @@ namespace app\models;
 
 class Profile extends \app\core\Model{
 
-	#[\app\validators\NonEmpty]
-	public $fullname;
-	#[\app\validators\Zipcode]
-	public $zipcode;
+	// #[\app\validators\NonEmpty]
+	// public $fullname;
+	// #[\app\validators\Zipcode]
+	// public $zipcode;
 
+	public function __construct(){
+		parent::__construct();
+	}
 	
 	public function __toString(){
 		return "$this->fullname";
@@ -30,7 +33,6 @@ class Profile extends \app\core\Model{
 	}
 
 	public function insert(){
-		if ($this->isValid()){
 		$SQL = "INSERT INTO profile(fullname, address, city, zipcode, state, country, user_id) VALUES (:fullname, :address, :city, :zipcode, :state, :country, :user_id)";
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute(['fullname'=>$this->fullname,
@@ -42,7 +44,6 @@ class Profile extends \app\core\Model{
 						'user_id'=>$this->user_id,
                         ]);
 		return self::$_connection->lastInsertId();
-		}
 	}
 
 	public function update(){

@@ -6,7 +6,10 @@ class User extends \app\core\Model{
 	#[\app\validators\Email]
 	public $email;
 
-
+	public function __construct(){
+		parent::__construct();
+	}
+	
 	public function get($email){
 		$SQL = "SELECT * FROM user WHERE email=:email";
 		$STMT = self::$_connection->prepare($SQL);

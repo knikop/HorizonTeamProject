@@ -2,42 +2,48 @@
 namespace app\models;
 
 class Cart extends \app\core\Model{
-	public function getAll(){
-		//get all newest first
-		$SQL = "SELECT * FROM product";
-		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute();
-		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
-		return $STMT->fetchAll();
+
+	public function __construct(){
+		parent::__construct();
 	}
 
-	public function search($searchTerm){
-		//get all newest first
-		$SQL = "SELECT * FROM cart WHERE product_name LIKE :searchTerm";
+	public function insert(){
+		$SQL = "INSERT INTO cart(qty, status, profile_id, product_id) VALUES (:qty, :status, :profile_id, :product_id)";
 		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['searchTerm'=>"%$searchTerm%"]);
+		$STMT->execute(['qty'=>0,
+						'status'=>'cart',
+						'profile_id'=>$this->profile_id,
+						'product_id'=>$this->product_id]);
+	}
+
+	public function get($profile_id){
+		$SQL = "SELECT * FROM cart WHERE profile_id=:profile_id";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['profile_id'=>$profile_id]);
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Cart');
 		return $STMT->fetchAll();
 	}
 
-	public function get($product_id){
-		$SQL = "SELECT * FROM product WHERE product_id=:product_id";
+	public function getCart($cart_id){
+		$SQL = "SELECT * FROM cart WHERE cart_id=:cart_id";
 		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['product_id'=>$product_id]);
-		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
+		$STMT->execute(['cart_id'=>$cart_id]);
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Cart');
 		return $STMT->fetch();
 	}
 
-    public function insert(){
-			$SQL = "INSERT INTO cart(product_id, product_name, cost_price, total_price, description, image)
-            VALUES (:product_id, :product_name, :cost_price, :total_price, :description, :image)";
+	public function delete() {
+		$SQL = "DELETE FROM cart WHERE cart_id=:cart_id";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['cart_id'=>$this->cart_id]);
+	}
+	
+	public function updateStatus(){
+			$SQL = "UPDATE profile SET status=:staus WHERE cart_id=:cart_id";
 			$STMT = self::$_connection->prepare($SQL);
-			$STMT->execute(['product_id'=>$this->product_id,
-						'product_name'=>$this->product_name,
-                        'cost_price'=>$this->cost_price,
-                        'total_price'=>$this->total_price,
-                        'description'=>$this->description,
-                        'image'=>$this->image]);
-			return self::$_connection->lastInsertId();
+			$STMT->execute(['cost_price'=>$this->cost_price,
+			'qty'=>$this->qty,
+			'status'=>$this->status,
+			'user_id'=>$this->user_id]);
 	}
 }

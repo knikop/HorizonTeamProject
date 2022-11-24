@@ -11,8 +11,8 @@ foreach ($data as $item) {
     <td type=name>$item->quantity</td> <br>
     <td type=name>$item->description</td> <br>
     </tr> <br>
-    <td type=action><a href='/Product/addToCart/$item->product_id'>Add to Cart</a></td><br>
-    <td type=action><a href='/Product/addToWishlist/$item->product_id'>Add to Wishlist</a></td><br>";
+    <td type=action><a href='/Cart/insert/$item->product_id'>Add to Cart</a></td><br>
+    <td type=action><a href='/Wishlist/insert/$item->product_id'>Add to Wishlist</a></td><br>";
 }
 ?>
 

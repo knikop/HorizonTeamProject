@@ -27,4 +27,4 @@
 <a href='/Profile/index'><i style="font-size: 2rem;" class='bi-file-earmark-person' title='My Profile'></i></a>	
 
 <a href='/Cart/index'><i style="font-size: 2rem;" class='bi-cart' title='My Cart'></i></a>
-<a href='/Wishlist/index'><i style="font-size: 2rem;" class='bi-wishlist' title='My Wishlist'></i></a>
+<a href='/Wishlist/index'><i style="font-size: 2rem;" class='bi-wishlist' title='My Wishlist'></i>Wishlist</a>
