@@ -2,19 +2,32 @@
 namespace app\controllers;
 
 class Wishlist extends \app\core\Controller{
-	public function index(){
+    #[\app\filters\Login]
+	#[\app\filters\Profile]
+    public function index(){
         $wishlist = new \app\models\Wishlist();
-		$wishlists = $wishlist->getAll();
-		$this->view('Wishlist/index', $wishlists);
+        $wishlists = $wishlist->get($_SESSION['profile_id']);
+        $this->view('Wishlist/index', $wishlists);
 	}
 
-    public function delete($wishlist_id){
+    #[\app\filters\Login]
+	#[\app\filters\Profile]
+    public function insert($product_id){
         $wishlist = new \app\models\Wishlist();
-        $wishlist->deleteAt($wishlist_id);
+        $wishlist->profile_id = $_SESSION['profile_id'];
+        $wishlist->product_id = $product_id;
+        $wishlist->insert();
+        header('location:/Product/index');
+	}
+
+    #[\app\filters\Login]
+	#[\app\filters\Profile]
+    public function delete($wishlist_id) {
+        $wishlist= new \app\models\Wishlist();
+        $wishlist= $wishlist->getWishlist($wishlist_id);
+        if($wishlist->profile_id == $_SESSION['profile_id']){
+            $wishlist->delete();
+		}
         header('location:/Wishlist/index');
-	}
-
-    public function remove_from_wishlist($product_id){
-        
-	}
+    }
 }

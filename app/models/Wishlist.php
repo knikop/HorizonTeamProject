@@ -2,33 +2,39 @@
 namespace app\models;
 
 class Wishlist extends \app\core\Model{
-	public function getAll(){
-		//get all newest first
-		$SQL = "SELECT * FROM wishlist";
+
+	public function __construct(){
+		parent::__construct();
+	}
+
+
+	public function insert(){
+		$SQL = "INSERT INTO wishlist(profile_id, product_id) VALUES (:profile_id, :product_id)";
 		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute();
-		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
+		$STMT->execute(['profile_id'=>$this->profile_id,
+						'product_id'=>$this->product_id]);
+	}
+
+	public function get($profile_id){
+		$SQL = "SELECT * FROM wishlist WHERE profile_id=:profile_id";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['profile_id'=>$profile_id]);
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Wishlist');
 		return $STMT->fetchAll();
 	}
 
-	public function get($product_id){
-		$SQL = "SELECT * FROM product WHERE product_id=:product_id";
+	public function getWishlist($wishlist_id){
+		$SQL = "SELECT * FROM wishlist WHERE wishlist_id=:wishlist_id";
 		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['product_id'=>$product_id]);
-		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
+		$STMT->execute(['wishlist_id'=>$wishlist_id]);
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Wishlist');
 		return $STMT->fetch();
 	}
 
-    public function insert(){
-			$SQL = "INSERT INTO cart(product_id, product_name, cost_price, total_price, description, image)
-            VALUES (:product_id, :product_name, :cost_price, :total_price, :description, :image)";
-			$STMT = self::$_connection->prepare($SQL);
-			$STMT->execute(['product_id'=>$this->product_id,
-						'product_name'=>$this->product_name,
-                        'cost_price'=>$this->cost_price,
-                        'total_price'=>$this->total_price,
-                        'description'=>$this->description,
-                        'image'=>$this->image]);
-			return self::$_connection->lastInsertId();
+	public function delete() {
+		$SQL = "DELETE FROM wishlist WHERE wishlist_id=:wishlist_id";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['wishlist_id'=>$this->wishlist_id]);
 	}
+	
 }
