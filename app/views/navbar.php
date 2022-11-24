@@ -10,6 +10,7 @@
 <body>
 	<div class='container'>
 		<a href='/Product/index'>Horizon</a>
+		<a href='/Profile/search'><i style="font-size: 2rem;" title='searh profile'></i>search someone's profile</a>
 		<form action="/Product/search" method="get" style='display:inline-block'>					
 			<div class="input-group">
 			    <input type="search" name='search_term' class="form-control" placeholder="Search..." />

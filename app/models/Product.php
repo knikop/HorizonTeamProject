@@ -8,7 +8,6 @@ class Product extends \app\core\Model{
 	}
 	
 	public function getAll(){
-		//get all newest first
 		$SQL = "SELECT * FROM product";
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute();
@@ -17,7 +16,6 @@ class Product extends \app\core\Model{
 	}
 
 	public function search($searchTerm){
-		//get all newest first
 		$SQL = "SELECT * FROM product WHERE product_name LIKE :searchTerm";
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute(['searchTerm'=>'%' . $searchTerm . '%']);
@@ -31,5 +29,21 @@ class Product extends \app\core\Model{
 		$STMT->execute(['product_id'=>$product_id]);
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
 		return $STMT->fetch();
+	}
+
+	public function getAscending(){
+		$SQL = "SELECT * FROM product ORDER BY product_name ASC";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute();
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
+		return $STMT->fetchAll();
+	}
+
+	public function getDescending(){
+		$SQL = "SELECT * FROM product ORDER BY product_name DESC";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute();
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
+		return $STMT->fetchAll();
 	}
 }

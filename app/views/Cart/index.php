@@ -1,4 +1,5 @@
 <?php $this->view('navbar'); ?>
+<a href='/Checkout//'>delete from cart</a>
 <br>
 <?php
 foreach ($data as $item) {

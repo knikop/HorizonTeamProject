@@ -15,4 +15,10 @@ class Product extends \app\core\Controller{
 		$products = $product->search($_GET['search_term']);
 		$this->view('Product/index', $products);
 	}
+
+	public function sortAscending() {
+		if(isset($_GET['sort']) && ($_GET['sort']) == 'sort-asc'){
+			
+		}
+	}
 }

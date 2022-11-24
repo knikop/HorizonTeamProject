@@ -33,22 +33,21 @@ class Profile extends \app\core\Model{
 	}
 
 	public function insert(){
-		$SQL = "INSERT INTO profile(fullname, address, city, zipcode, state, country, user_id) VALUES (:fullname, :address, :city, :zipcode, :state, :country, :user_id)";
+		$SQL = "INSERT INTO profile(fullname, address, city, zipcode, state, image, user_id) VALUES (:fullname, :address, :city, :zipcode, :state, :image, :user_id)";
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute(['fullname'=>$this->fullname,
 						'address'=>$this->address,
 						'city'=>$this->city,
 						'zipcode'=>$this->zipcode,
                         'state'=>$this->state,
-						'country'=>$this->country,
+						'image'=>$this->image,
 						'user_id'=>$this->user_id,
                         ]);
 		return self::$_connection->lastInsertId();
 	}
 
 	public function update(){
-		if ($this->isValid()){
-			$SQL = "UPDATE profile SET fullname=:fullname, address=:address, city=:city, zipcode=:zipcode, state=:state, country=:country 
+			$SQL = "UPDATE profile SET fullname=:fullname, address=:address, city=:city, zipcode=:zipcode, state=:state
 			WHERE profile_id=:profile_id";
 			$STMT = self::$_connection->prepare($SQL);
 			$STMT->execute(['fullname'=>$this->fullname,
@@ -56,9 +55,23 @@ class Profile extends \app\core\Model{
 							'city'=>$this->city,
 							'zipcode'=>$this->zipcode,
 							'state'=>$this->state,
-							'country'=>$this->country,
+							// 'image'=>$this->image,
 							'profile_id'=>$this->profile_id]);
 	}
+
+	public function updateImage(){
+		$SQL = "UPDATE profile SET image=:image
+		WHERE profile_id=:profile_id";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['image'=>$this->image,
+						'profile_id'=>$this->profile_id]);
 }
 
+	public function search($searchTerm){
+		$SQL = "SELECT * FROM profile WHERE fullname LIKE :searchTerm";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['searchTerm'=>'%' . $searchTerm . '%']);
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Profile');
+		return $STMT->fetchAll();
+	}
 }

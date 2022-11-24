@@ -2,12 +2,20 @@
 namespace app\controllers;
 
 class Profile extends \app\core\Controller{
+
 	#[\app\filters\Login]
 	#[\app\filters\Profile]
 	public function index(){
 		$profile = new \app\models\Profile();
 		$profile = $profile->get($_SESSION['profile_id']);
 		$this->view('Profile/detail', $profile);
+	}
+
+	public function search(){
+		$this->view('Profile/search');
+		$product = new \app\models\Product();
+		$products = $product->search($_GET['search_term']);
+		$this->view('Product/index', $products);
 	}
 
 	public function detail($profile_id){
@@ -27,7 +35,6 @@ class Profile extends \app\core\Controller{
 			$profile->city = $_POST['city'];
             $profile->zipcode = $_POST['zipcode'];
             $profile->state = $_POST['state'];
-            $profile->country = $_POST['country'];
 			$profile->update();
 			header('location:/Profile/index');
 		}else{
@@ -36,22 +43,47 @@ class Profile extends \app\core\Controller{
 	}
 
 	#[\app\filters\Login]
+	#[\app\filters\Profile]
+	public function editAvatar(){
+		$profile = new \app\models\Profile();
+		$profile = $profile->get($_SESSION['profile_id']);
+		if(isset($_POST['action'])){
+			$filename = $this->saveFile($_FILES['image']);
+			if($filename){
+				$profile->image = $filename;
+				$profile->updateImage();
+				header('location:/Profile/index');
+			}else{
+				header('location:/Profile/editAvatar', $profile);
+			}
+			header('location:/Profile/index');
+		}else{
+			$this->view('Profile/editAvatar', $profile);
+		}
+	}
+
+
+	#[\app\filters\Login]
 	public function create(){
 		if(isset($_POST['action'])){
-			$profile = new \app\models\Profile();
+		$profile = new \app\models\Profile();
+			//populate the object
 			$profile->fullname = $_POST['fullname'];
 			$profile->address = $_POST['address'];
 			$profile->city = $_POST['city'];
             $profile->zipcode = $_POST['zipcode'];
             $profile->state = $_POST['state'];
-            $profile->country = $_POST['country'];
 			$profile->user_id = $_SESSION['user_id'];
-			$_SESSION['profile_id'] = $profile->insert();
-			header('location:/Profile/index');
+			$filename = $this->saveFile($_FILES['image']);
+			if($filename){
+				$profile->image = $filename;
+				$_SESSION['profile_id'] = $profile->insert();
+				header('location:/Profile/index');
+			}else{
+				header('location:/Profile/create');
+			}
 		}else{
 			$this->view('Profile/create');
 		}
-
-	}
-
+    }
 }
