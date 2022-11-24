@@ -13,6 +13,6 @@ class Product extends \app\core\Controller{
 		//To find interesting publications, as a person or user, I can search for captions by search terms.
 		$product = new \app\models\Product();
 		$products = $product->search($_GET['search_term']);
-		$this->view('Product/index', $product);
+		$this->view('Product/index', $products);
 	}
 }
