@@ -54,6 +54,27 @@ class User extends \app\core\Controller{
 		}
 	}
 
+	#[\app\filters\Login]
+	public function update(){
+		if(isset($_POST['action'])){
+			$user = new \app\models\User();
+			$user = $user->get($_SESSION['email']);
+			if(password_verify($_POST['old_password'],$user->password_hash)){
+				if($_POST['password'] == $_POST['password_confirm']){
+					$user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+					$user->updatePassword();
+					header('location:/Product/index');
+				}else{
+					header('location:/User/update');
+				}
+			}else{
+				header('location:/User/update');
+			}
+		}else{
+			$this->view('User/update');
+		}
+	}
+
 	function check2fa(){
 		if(!isset($_SESSION['user_id'])){
 			header('location:/User/index');
