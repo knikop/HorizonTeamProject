@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2022 at 05:51 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Generation Time: Nov 26, 2022 at 04:52 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `cart` (
   `profile_id` int(11) NOT NULL,
   `qty` int(11) NOT NULL,
   `status` enum('cart','paid','shipped') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `cart`
@@ -55,7 +55,7 @@ CREATE TABLE `cart_detail` (
   `product_id` int(11) NOT NULL,
   `qty` int(11) NOT NULL,
   `total_price` decimal(6,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -70,7 +70,7 @@ CREATE TABLE `product` (
   `quantity` int(11) NOT NULL,
   `description` varchar(100) NOT NULL,
   `image` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product`
@@ -98,16 +98,16 @@ CREATE TABLE `profile` (
   `city` varchar(100) NOT NULL,
   `zipcode` varchar(6) NOT NULL,
   `state` varchar(100) NOT NULL,
-  `country` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `image` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `profile`
 --
 
-INSERT INTO `profile` (`profile_id`, `user_id`, `fullname`, `address`, `city`, `zipcode`, `state`, `country`) VALUES
-(2, 2, 'Saqib', '10113 avenue de cobourg', 'Quebec', 'H1H4W7', 'QC', 'Canada'),
-(3, 3, 'Ahmad', '10113 avenue de cobourg', 'Montreal', 'H1H4W7', 'QC', 'Canada');
+INSERT INTO `profile` (`profile_id`, `user_id`, `fullname`, `address`, `city`, `zipcode`, `state`, `image`) VALUES
+(4, 4, 'Ahmad', '10113 avenue de cobourg', 'Montreal', 'H1H4W7', 'QC', '63810a00793f2.jpg'),
+(5, 5, 'Saqib', 'mangler', 'nigmar', 'y123wa', 'manglerland', '638112afb7023.jpg');
 
 -- --------------------------------------------------------
 
@@ -119,16 +119,15 @@ CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password_hash` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `email`, `password_hash`) VALUES
-(1, '2003knikop@gmail.com', '$2y$10$5KEq/qW0GbPlQDEUpqjLOujoAsv5wLD5A3Q8Q1clq6/Eg3g9XY4O.'),
-(2, 'admin@email.com', '$2y$10$6Oc4bkrVjS3MGWhtwMhZUuL5gaNNpZrzOtGwxeTeMw18GZ8VBI5Ty'),
-(3, 'saqib@email.com', '$2y$10$JhB36vsOhds8x1w5FGFWJe3jJ.BodRKWq7cSbUapkzGi2yyMMlsiG');
+(4, 'admin@email.com', '$2y$10$UH4ZdHFifD/7myRWKmefzuhZ2XCZJxxlEuosUV8sCt0TDvkKOPWaq'),
+(5, 'saqib@email.com', '$2y$10$B2ikISf37xJK57FqBHGCLetMaSUlV5yI2W5XyodQM2fKSSyLAv3Ei');
 
 -- --------------------------------------------------------
 
@@ -140,14 +139,14 @@ CREATE TABLE `wishlist` (
   `wishlist_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `profile_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `wishlist`
 --
 
 INSERT INTO `wishlist` (`wishlist_id`, `product_id`, `profile_id`) VALUES
-(3, 6, 2);
+(5, 1, 4);
 
 --
 -- Indexes for dumped tables
@@ -222,19 +221,19 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -244,8 +243,7 @@ ALTER TABLE `wishlist`
 -- Constraints for table `cart`
 --
 ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_to_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`),
-  ADD CONSTRAINT `cart_to_profile` FOREIGN KEY (`profile_id`) REFERENCES `profile` (`profile_id`);
+  ADD CONSTRAINT `cart_to_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
 
 --
 -- Constraints for table `cart_detail`
