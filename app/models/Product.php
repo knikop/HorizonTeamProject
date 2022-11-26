@@ -7,8 +7,15 @@ class Product extends \app\core\Model{
 		parent::__construct();
 	}
 	
-	public function getAll(){
+	public function getAll($sortValue){
 		$SQL = "SELECT * FROM product";
+		if (isset($sortValue)) {
+			if ($sortValue == 'asc'){
+			$SQL = "SELECT * FROM product ORDER BY cost_price ASC";
+		} else if ($sortValue == 'desc'){
+			$SQL = "SELECT * FROM product ORDER BY cost_price DESC";
+		}
+		} 
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute();
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
@@ -29,21 +36,5 @@ class Product extends \app\core\Model{
 		$STMT->execute(['product_id'=>$product_id]);
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
 		return $STMT->fetch();
-	}
-
-	public function getAscending(){
-		$SQL = "SELECT * FROM product ORDER BY product_name ASC";
-		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute();
-		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
-		return $STMT->fetchAll();
-	}
-
-	public function getDescending(){
-		$SQL = "SELECT * FROM product ORDER BY product_name DESC";
-		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute();
-		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
-		return $STMT->fetchAll();
 	}
 }

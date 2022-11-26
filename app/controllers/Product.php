@@ -5,20 +5,14 @@ class Product extends \app\core\Controller{
 
 	public function index(){
 		$product = new \app\models\Product();
-		$products = $product->getAll();
+		$products = $product->getAll(isset($_GET['sort'])? $_GET['sort']: null);
 		$this->view('Product/index', $products);
 	}
 
     public function search(){
-		//To find interesting publications, as a person or user, I can search for captions by search terms.
 		$product = new \app\models\Product();
 		$products = $product->search($_GET['search_term']);
 		$this->view('Product/index', $products);
 	}
 
-	public function sortAscending() {
-		if(isset($_GET['sort']) && ($_GET['sort']) == 'sort-asc'){
-			
-		}
-	}
 }

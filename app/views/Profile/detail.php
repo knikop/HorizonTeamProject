@@ -17,5 +17,7 @@ if(isset($_SESSION['profile_id']) && $_SESSION['profile_id'] == $data->profile_i
 	echo '<a href="/Profile/edit">Edit my profile</a>';
 	echo "<br>";
 	echo '<a href="/Profile/editAvatar">Edit my avatar</a>';
+	echo "<br>";
+	echo '<a href="/User/update">Update password</a>';
 }
 ?>

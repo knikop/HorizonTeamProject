@@ -11,13 +11,20 @@ class Profile extends \app\core\Controller{
 		$this->view('Profile/detail', $profile);
 	}
 
-	public function search(){
-		$this->view('Profile/search');
-		$product = new \app\models\Product();
-		$products = $product->search($_GET['search_term']);
-		$this->view('Product/index', $products);
+	public function allProfile(){
+		$profile= new \app\models\Profile();
+		$profiles = $profile->getAll();
+		$this->view('Profile/allProfile', $profiles);
 	}
 
+	public function search(){
+		$profile = new \app\models\Profile();
+		$profiles = $profile->search($_GET['search_term']);
+		$this->view('Profile/allProfile', $profiles);
+	}
+
+	#[\app\filters\Login]
+	#[\app\filters\Profile]
 	public function detail($profile_id){
 		$profile = new \app\models\Profile();
 		$profile = $profile->get($profile_id);

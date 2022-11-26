@@ -30,4 +30,11 @@ class Wishlist extends \app\core\Controller{
 		}
         header('location:/Wishlist/index');
     }
+
+    public function profileWishlist($profile_id) {
+        $wishlist = new \app\models\Wishlist();
+        // $wishlist->profile_id = $_SESSION['profile_id'];
+        $wishlist->get($profile_id);
+        header('location:/Product/profileWishlist');
+    }
 }
