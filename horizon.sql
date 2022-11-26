@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2022 at 06:49 PM
+-- Generation Time: Nov 26, 2022 at 04:52 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -106,7 +106,8 @@ CREATE TABLE `profile` (
 --
 
 INSERT INTO `profile` (`profile_id`, `user_id`, `fullname`, `address`, `city`, `zipcode`, `state`, `image`) VALUES
-(4, 4, 'Ahmad', '10113 avenue de cobourg', 'Montreal', 'H1H4W7', 'QC', '6380e449063fb.png');
+(4, 4, 'Ahmad', '10113 avenue de cobourg', 'Montreal', 'H1H4W7', 'QC', '63810a00793f2.jpg'),
+(5, 5, 'Saqib', 'mangler', 'nigmar', 'y123wa', 'manglerland', '638112afb7023.jpg');
 
 -- --------------------------------------------------------
 
@@ -125,7 +126,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `email`, `password_hash`) VALUES
-(4, 'admin@email.com', '$2y$10$UH4ZdHFifD/7myRWKmefzuhZ2XCZJxxlEuosUV8sCt0TDvkKOPWaq');
+(4, 'admin@email.com', '$2y$10$UH4ZdHFifD/7myRWKmefzuhZ2XCZJxxlEuosUV8sCt0TDvkKOPWaq'),
+(5, 'saqib@email.com', '$2y$10$B2ikISf37xJK57FqBHGCLetMaSUlV5yI2W5XyodQM2fKSSyLAv3Ei');
 
 -- --------------------------------------------------------
 
@@ -219,13 +221,13 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
