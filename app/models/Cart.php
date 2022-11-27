@@ -39,11 +39,17 @@ class Cart extends \app\core\Model{
 	}
 	
 	public function updateStatus(){
-			$SQL = "UPDATE profile SET status=:staus WHERE cart_id=:cart_id";
+			$SQL = "UPDATE profile SET status=:status WHERE cart_id=:cart_id";
 			$STMT = self::$_connection->prepare($SQL);
 			$STMT->execute(['cost_price'=>$this->cost_price,
 			'qty'=>$this->qty,
-			'status'=>$this->status,
-			'user_id'=>$this->user_id]);
+			'status'=>$this->status]);
 	}
+
+	public function updateQty(){
+		$SQL = "UPDATE profile SET qty=1 WHERE cart_id=:cart_id";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['qty'=>$this->qty,
+						'cart_id'=>$this->cart_id]);
+}
 }
