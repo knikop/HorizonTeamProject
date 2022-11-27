@@ -16,8 +16,15 @@ class Profile extends \app\core\Model{
 		return "$this->fullname";
 	}
 
-	public function getAll(){
+	public function getAll($sortValue){
 		$SQL = "SELECT * FROM profile";
+		if (isset($sortValue)) {
+			if ($sortValue == 'asc'){
+			$SQL = "SELECT * FROM profile ORDER BY fullname ASC";
+		} else if ($sortValue == 'desc'){
+			$SQL = "SELECT * FROM profile ORDER BY fullname DESC";
+		}
+		} 
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute();
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Profile');
@@ -74,4 +81,5 @@ class Profile extends \app\core\Model{
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Profile');
 		return $STMT->fetchAll();
 	}
+
 }

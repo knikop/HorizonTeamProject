@@ -13,7 +13,7 @@ class Profile extends \app\core\Controller{
 
 	public function allProfile(){
 		$profile= new \app\models\Profile();
-		$profiles = $profile->getAll();
+		$profiles = $profile->getAll(isset($_GET['sort'])? $_GET['sort']: null);
 		$this->view('Profile/allProfile', $profiles);
 	}
 
@@ -74,7 +74,6 @@ class Profile extends \app\core\Controller{
 	public function create(){
 		if(isset($_POST['action'])){
 		$profile = new \app\models\Profile();
-			//populate the object
 			$profile->fullname = $_POST['fullname'];
 			$profile->address = $_POST['address'];
 			$profile->city = $_POST['city'];
@@ -93,4 +92,13 @@ class Profile extends \app\core\Controller{
 			$this->view('Profile/create');
 		}
     }
+
+	public function get($profile_id) {
+        $wishlist = new \app\models\Wishlist();
+        $wishlist = $wishlist->get($profile_id);
+        header('location:/Wishlist/profileWishlist');
+    }
+
+		
+
 }

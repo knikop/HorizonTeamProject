@@ -2,6 +2,8 @@
 namespace app\controllers;
 
 class Wishlist extends \app\core\Controller{
+
+    
     #[\app\filters\Login]
 	#[\app\filters\Profile]
     public function index(){
@@ -31,10 +33,9 @@ class Wishlist extends \app\core\Controller{
         header('location:/Wishlist/index');
     }
 
-    public function profileWishlist($profile_id) {
+	public function getProfileWishlist($profile_id) {
         $wishlist = new \app\models\Wishlist();
-        // $wishlist->profile_id = $_SESSION['profile_id'];
-        $wishlist->get($profile_id);
-        header('location:/Product/profileWishlist');
+        $wishlists = $wishlist->get($profile_id);
+        $this->view('Wishlist/profileWishlist', $wishlists);
     }
 }

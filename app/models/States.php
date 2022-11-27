@@ -4,7 +4,6 @@ namespace app\models;
 class States extends \app\core\Model{
 
 	public function search($searchTerm){
-		//get all newest first
 		$SQL = "SELECT * FROM product WHERE product_name LIKE :searchTerm";
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute(['searchTerm'=>"%$searchTerm%"]);

@@ -9,7 +9,8 @@ class Wishlist extends \app\core\Model{
 
 
 	public function insert(){
-		$SQL = "INSERT INTO wishlist(profile_id, product_id) VALUES (:profile_id, :product_id)";
+		$SQL = "INSERT INTO wishlist(profile_id, product_id) VALUES (:profile_id, :product_id)
+		ON DUPLICATE KEY UPDATE wishlist_id=wishlist_id";
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute(['profile_id'=>$this->profile_id,
 						'product_id'=>$this->product_id]);
@@ -24,7 +25,7 @@ class Wishlist extends \app\core\Model{
 	}
 
 	public function getWishlist($wishlist_id){
-		$SQL = "SELECT * FROM wishlist WHERE wishlist_id=:wishlist_id";
+		$SQL = "SELECT DISTINCT product_id FROM wishlist WHERE wishlist_id=:wishlist_id";
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute(['wishlist_id'=>$wishlist_id]);
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Wishlist');

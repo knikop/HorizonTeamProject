@@ -2,6 +2,7 @@
 namespace app\controllers;
 
 class Cart extends \app\core\Controller{
+
     #[\app\filters\Login]
 	#[\app\filters\Profile]
     public function index(){
@@ -10,12 +11,15 @@ class Cart extends \app\core\Controller{
         $this->view('Cart/index', $carts);
 	}
 
+
     #[\app\filters\Login]
 	#[\app\filters\Profile]
     public function insert($product_id){
         $cart = new \app\models\Cart();
         $cart->profile_id = $_SESSION['profile_id'];
         $cart->product_id = $product_id;
+        $cart->qty = 1;
+        $cart->status = 'cart';
         $cart->insert();
         header('location:/Product/index');
 	}
@@ -29,5 +33,9 @@ class Cart extends \app\core\Controller{
             $cart->delete();
 		}
         header('location:/Cart/index');
+    }
+
+    public function checkout() {
+        
     }
 }

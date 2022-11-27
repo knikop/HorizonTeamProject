@@ -14,5 +14,4 @@ class Product extends \app\core\Controller{
 		$products = $product->search($_GET['search_term']);
 		$this->view('Product/index', $products);
 	}
-
 }

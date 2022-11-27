@@ -1,7 +1,19 @@
 <?php $this->view('navbar'); ?>
-
-<h1>Create a Wishlist</h1>
-
-<form action='' method="post">
-	<input type='submit' name='action' value="Create" class='btn btn-primary' />
-</form>
+<br>
+<?php
+foreach ($data as $item) {
+    $product = new \app\models\Product();
+    $product = $product->get($item->product_id);
+    $profile = new \app\models\Profile();
+    $profile = $profile->get($item->profile_id);
+    
+    $image = $product->image;
+    echo "<tr>
+    <img src='$image'><br>
+    <td type=name>$product->product_name</td> <br>
+    <td type=name>$product->cost_price</td>$ <br>
+    <td type=name>$product->quantity</td> <br>
+    <td type=name>$product->description</td> <br>
+    </tr> <br>";
+}
+?>

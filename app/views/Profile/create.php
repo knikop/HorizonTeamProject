@@ -8,25 +8,6 @@ if (isset($_GET['message'])) {
 <?php
 }
 ?>
-<h1>Create your Profile</h1>
-<p>Provide the information requested in the form below.</p>
-<!-- <form action='' method="post">
-<h4 style="margin-right: 27%; font-weight: bold; color: black">Add A profile Picture</h4>
-	        		<input class="btn btn-primary btn-lg" type="file" name="picture" style="width: 60%; border-radius: 15px"/><br>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-2 col-form-label">Full name:<input class='form-control' type="text" name="fullname" placeholder="full name"/></label>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-2 col-form-label">Address:<input class='form-control' type="text" name="address" placeholder="address"/></label>
-	</div>
-    <div class="form-group">
-		<label class="col-sm-2 col-form-label">Zipcode:<input class='form-control' type="text" name="zipcode" placeholder="last name"/></label>
-	</div>
-    <div class="form-group">
-		<label class="col-sm-2 col-form-label">State:<input class='form-control' type="text" name="state" placeholder="last name"/></label>
-	</div>
-	<input type='submit' name='action' value="Create" class='btn btn-primary' /> -->
 
 <div class="box">
 	<div class="container p-3 insideColor" style="width: 80%; height: 115%; margin-top: 25%">
@@ -60,7 +41,6 @@ if (isset($_GET['message'])) {
 	</div>
 </div>
 </form>
-
 <script>
 	picture.onchange = evt => {
   const [file] = picture.files
