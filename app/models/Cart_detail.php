@@ -19,14 +19,6 @@ class Cart_detail extends \app\core\Model{
 						'cost_price'=>$this->cost_price]);
 	}
 
-	// public function get($cart_detail_id){
-	// 	$SQL = "SELECT * FROM cart_detail ";
-	// 	$STMT = self::$_connection->prepare($SQL);
-	// 	$STMT->execute(['cart_id'=>$cart_id]);
-	// 	$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Cart_detail');
-	// 	return $STMT->fetch();
-	// }
-
 	public function update(){
 		$SQL = "UPDATE cart_detail SET qty=:qty, total_price=:total_price WHERE cart_detail_id=:cart_detail_id";
 		$STMT = self::$_connection->prepare($SQL);
