@@ -10,14 +10,22 @@
 
 <body>
 	<div class='container'>
-		<a href='/Product/index'>Horizon</a>
-		<a href='/Profile/allProfile'><i style="font-size: 2rem;" title='search profile'></i>search someone's profile</a>
+		<a href='/Product/index'>
+		<img src="https://github.com/knikop/HorizonTeamProject/blob/main/horizonImages/horizon-store.jpg?raw=true"
+		alt="horizon logo" style="width:100px;height:50px;">
+		</a>
+		<a href='/Profile/allProfile'><i style="font-size: 2rem;" title='search profile'></i>
+		<img src="https://github.com/knikop/HorizonTeamProject/blob/main/horizonImages/searchProfile.gif?raw=true"
+		alt="search user profiles" style="width:100px;height:50px;">
+		</a>
+		
 		<form action="/Product/search" method="get" style='display:inline-block'>
 			<div class="input-group">
 				<input type="search" name='search_term' class="form-control" placeholder="Search..." />
 				<button type="submit" class="btn btn-primary" value="Search"><i class="bi-search"></i></button>
 			</div>
 		</form>
+
 		<?php
 		if (!isset($_SESSION['user_id'])) { ?>
 			<a href="/User/index"><i style="font-size: 2rem;" class='bi-door-closed' title="Log in"></i></a>

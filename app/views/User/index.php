@@ -20,7 +20,7 @@ if(isset($_GET['error'])){
 	<div class="header">
 		<div class="top">
 			<div class="logo">
-				<img src="https://github.com/knikop/HorizonTeamProject/blob/main/images/horizon-store.jpg?raw=true" width="300" height="200"/>
+				<img src="https://github.com/knikop/HorizonTeamProject/blob/main/horizonImages/horizon-store.jpg?raw=true" width="300" height="200"/>
 			</div>
 			<form action='' method='post'>
 				<div class="input_field">

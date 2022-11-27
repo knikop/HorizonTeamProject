@@ -17,7 +17,7 @@ if(isset($_GET['error'])){
 }
 ?>
 <div class="sign-up">
-    <img src="https://github.com/knikop/HorizonTeamProject/blob/main/images/horizon-store.jpg?raw=true" width="500" height="400"/>
+    <img src="https://github.com/knikop/HorizonTeamProject/blob/main/horizonImages/horizon-store.jpg?raw=true" width="500" height="400"/>
 
         <p>Register to purchase any of the latest video game merchandise on the market.</p>
         
