@@ -12,10 +12,11 @@
 	<div class='container'>
 		<a href='/Product/index'>
 		<img src="https://github.com/knikop/HorizonTeamProject/blob/main/horizonImages/horizon-store.jpg?raw=true"
-		 alt="horizon logo" style="width:100px;height:50px;">
+		alt="horizon logo" style="width:100px;height:50px;">
 		</a>
 		<a href='/Profile/allProfile'><i style="font-size: 2rem;" title='search profile'></i>
-		<img src="https://github.com/knikop/HorizonTeamProject/blob/main/horizonImages/searchProfile.gif?raw=true" alt="search user profiles" style="width:100px;height:50px;">
+		<img src="https://github.com/knikop/HorizonTeamProject/blob/main/horizonImages/searchProfile.gif?raw=true"
+		alt="search user profiles" style="width:100px;height:50px;">
 		</a>
 		
 		<form action="/Product/search" method="get" style='display:inline-block'>
