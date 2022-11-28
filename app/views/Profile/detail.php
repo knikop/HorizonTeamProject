@@ -21,3 +21,5 @@ if(isset($_SESSION['profile_id']) && $_SESSION['profile_id'] == $data->profile_i
 	echo '<a href="/User/update">Update password</a>';
 }
 ?>
+
+<a href="/User/twofasetup">Update password</a>

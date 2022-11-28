@@ -17,5 +17,3 @@ applied to your account.
 </form>
 </body>
 </html>
-Footer
-© 2022 GitHub, Inc.
