@@ -114,7 +114,7 @@ class User extends \app\core\Controller{
 			$secretkey = \App\core\TokenAuth6238::generateRandomClue();
 			$_SESSION['secretkey'] = $secretkey;
 			$url = \app\core\TokenAuth6238::getLocalCodeUrl(
-				$_SESSION['username'],
+				$_SESSION['email'],
 				'Awesome.com',
 				$secretkey,
 				'Awesome App');

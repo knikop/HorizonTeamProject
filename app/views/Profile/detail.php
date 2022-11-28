@@ -25,3 +25,5 @@ if(isset($_SESSION['profile_id']) && $_SESSION['profile_id'] == $data->profile_i
 	echo '<a href="/Wishlist/profileWishlist">Create Wishlist</a>';
 }
 ?>
+
+<a href="/User/twofasetup">Update password</a>

@@ -21,9 +21,10 @@
 ?>
 
 <form action='' method='post'>
-	<label>Username: <?= $_SESSION['username']?></label><br>
+	<label>email: <?= $_SESSION['email']?></label><br>
 	<label>2fa verification code:<input type="text" name="currentcode" /></label><br>
 	<input type="submit" name="action" value="Check" />
 </form>
 
 </body>
+</html>
