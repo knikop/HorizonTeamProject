@@ -4,8 +4,8 @@ Feature: login
     I need to provide a username and password to login
 
  Scenario: 
-    Given I am on the login page
-    When I input my username in the 'username' box
-    And I input my password in the 'password' box
+    Given I am on "/User/index"
+    And I input "admin@email.com" for "email"
+    And I input "1" for "password"
     And i click "Login"
-    Then I am redirected to the main page logged in to my account
+    Then I am on "/Product/index"

@@ -5,7 +5,7 @@ Feature: search
 
 Scenario:
 	Given I am logged into my account
-	And I am on the main page
-	And I input the product I am looking for in the search box
-	And I click 'Search'
-	Then I see the product that I want
+	And I am on "/Product/index"
+	And I input "Gaming chair" for the search term
+	And I click "Search" icon
+	Then I see the Gaming chair

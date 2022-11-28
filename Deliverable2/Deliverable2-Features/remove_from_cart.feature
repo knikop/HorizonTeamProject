@@ -5,7 +5,6 @@ Feature: remove from cart
 
 Scenario:
 	Given I am logged into my account
-	And I click on the "Cart"
-	And I click "Remove from Cart"
-	And I click on the 'Cart'
+	And I click on the "My Cart" ison
+	And I click "delete from Cart"
 	Then I don't see the product in the cart

@@ -5,9 +5,7 @@ Feature: remove from wishlist
 
 Scenario:
 	Given I am logged into my account
-	And I click on my profile
-	And I click on the view wishlist
-	And a click on the wishlist I want
-	And I click 'Remove from Wishlist'
-	And I click back on the wishlist a want
+	And I am on "/Profile/index"
+	And I click "Wishlist"
+	And I click "delete from wishlist"
 	Then I dont't see the product in the wishlist

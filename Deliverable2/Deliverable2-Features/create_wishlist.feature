@@ -6,7 +6,7 @@ Feature: create wishlist
 Scenario:
 	Given I am logged into my account
 	And I click on my profile
-	And I click on 'Create a new Wishlist'
-	And I enter the name and description
-	And I click 'Create'
-	Then I see the wishlist in view wishlists
+	Then I am on "/Profile/index"
+	And I click on "Create Wishlist"
+	Then I am on "/Wishlist/profileWishlist"
+	Then I see the wishlist 

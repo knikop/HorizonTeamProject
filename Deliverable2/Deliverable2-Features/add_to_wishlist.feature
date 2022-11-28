@@ -5,7 +5,8 @@ Feature: add to wishlist
 
 Scenario:
 	Given I am logged into my account
-	And I click on the product
-	And I click 'Add to Wishlist'
-	And I click on the wishlist a want
-	Then I see the product in the wishlist
+	And I am on "Product/index/"
+	And I click "Add to Wishlist"
+	And I click on the profile icon
+	And I click on the "Wishlist" 
+	Then I am on "/Wishlist/index/"

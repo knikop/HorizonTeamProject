@@ -5,7 +5,7 @@ Feature: add to cart
 
 Scenario:
 	Given I am logged into my account
-	And I click on a product
-	And I click 'Add to Cart'
-	And I click on the 'Cart'
-	Then I see the product in the cart
+	And I am on "Product/index/"
+	And I click "Add to Cart"
+	And I click on the "My Cart" icon
+	Then I am on "/Cart/index/"

@@ -5,7 +5,6 @@ Feature: modify cart
 
 Scenario:
 	Given I am logged into my account
-	And I click on the 'Cart'
-	And I click 'Modify'
-	And I click on the 'Cart'
-	Then I see the modified product in the cart
+	And I click on the "My Cart" icon
+	And I click "+" or "-"
+	Then I see quantity of the item increase or decrease in the cart
