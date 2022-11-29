@@ -29,6 +29,7 @@ class Cart extends \app\core\Controller{
     public function delete($cart_id) {
         $cart = new \app\models\Cart();
         $cart = $cart->getCart($cart_id);
+
         if($cart->profile_id == $_SESSION['profile_id']){
             $cart->delete();
 		}

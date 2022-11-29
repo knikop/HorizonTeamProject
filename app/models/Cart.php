@@ -7,7 +7,7 @@ class Cart extends \app\core\Model{
 
 	public function insert(){
 		$SQL = "INSERT INTO cart(qty, status, profile_id, product_id) VALUES (:qty, :status, :profile_id, :product_id)
-		ON DUPLICATE KEY UPDATE qty=qty+1";
+		ON DUPLICATE KEY UPDATE qty=:qty+ WHERE profile_id = :profile_id";
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute(['qty'=>$this->qty,
 						'status'=>$this->status,
@@ -21,6 +21,14 @@ class Cart extends \app\core\Model{
 		$STMT->execute(['profile_id'=>$profile_id]);
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Cart');
 		return $STMT->fetchAll();
+	}
+	
+	public function getCart($cart_id){
+		$SQL = "SELECT * FROM cart WHERE cart_id=:cart_id";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['cart_id'=>$cart_id]);
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Cart');
+		return $STMT->fetch();
 	}
 
 

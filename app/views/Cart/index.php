@@ -27,5 +27,4 @@ foreach ($data as $item) {
 }
 ?>
 
-<td type=action><a href='/Cart/delete/'>checkout</a></td>
 
