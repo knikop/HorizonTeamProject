@@ -21,5 +21,4 @@ class Controller{
 		}else
 			return '';
 	}
-
 }

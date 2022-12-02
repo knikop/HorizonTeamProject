@@ -53,12 +53,11 @@ class Cart extends \app\core\Model{
 		$STMT->execute(['cart_id'=>$this->cart_id]);
 	}
 	
-	public function updateStatus(){
-			$SQL = "UPDATE cart SET status=:status WHERE cart_id=:cart_id";
+	public function updateStatus($profile_id){
+			$SQL = "UPDATE cart SET status=:status WHERE profile_id=:profile_id";
 			$STMT = self::$_connection->prepare($SQL);
-			$STMT->execute(['cost_price'=>$this->cost_price,
-			'qty'=>$this->qty,
-			'status'=>$this->status]);
+			$STMT->execute(['status'=>$this->status,
+							'profile_id'=>$profile_id]);
 	}
 	
 	public function add(){

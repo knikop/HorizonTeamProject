@@ -15,6 +15,7 @@ foreach ($data as $item) {
     <td type=name>$product->quantity</td> <br>
     <td type=name>$product->description</td> <br>
     
+    <td type=action><a href='/Wishlist/insertToCart/$product->product_id'>Add to Cart</a></td><br>
     <td type=action><a href='/Wishlist/delete/$item->wishlist_id'>delete from wishlist</a></td><br>
     </tr> <br>";
 }
