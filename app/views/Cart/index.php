@@ -15,16 +15,12 @@ foreach ($data as $item) {
     <td type=name>$product->description</td> <br>
     <td type=name>$item->qty</td> <br>
 
-    <form method='post'>
-    <input name='add' type=submit value='+'>
-    </form>
+    <a href='/Cart/increaseQtyButton/$item->cart_id'>add</a>
+    <a href='/Cart/decreaseQtyButton/$item->cart_id'>reduce</a>
 
-    <form method='post'>
-    <input name='remove' type=submit value='_'>
-    </form>
+
     <td type=action><a href='/Cart/delete/$item->cart_id'>delete from cart</a></td><br>
     </tr> <br>";
 }
 ?>
-
 

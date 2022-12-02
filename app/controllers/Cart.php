@@ -20,7 +20,13 @@ class Cart extends \app\core\Controller{
         $cart->product_id = $product_id;
         $cart->qty = 1;
         $cart->status = 'cart';
-        $cart->insert();
+        $currentStatus = $cart->getProfileProductQty($_SESSION['profile_id'], $product_id);
+        $rows = $cart->getProfileProduct($_SESSION['profile_id'], $product_id);
+        if ($rows == 0){
+            $cart->insert();
+        } else {
+            $cart->increaseQty($_SESSION['profile_id'], $product_id);
+        }
         header('location:/Product/index');
 	}
 
@@ -36,7 +42,21 @@ class Cart extends \app\core\Controller{
         header('location:/Cart/index');
     }
 
-    public function checkout() {
-        
+    public function increaseQtyButton($cart_id) {
+        $cart = new \app\models\Cart();
+        $cart = $cart->getCart($cart_id);
+        $cart->add();
+        header('location:/Cart/index');
+    }
+
+    public function decreaseQtyButton($cart_id) {
+        $cart = new \app\models\Cart();
+        $cart = $cart->getCart($cart_id);
+        $currentQty = $cart->getProfileProductQty($cart_id);
+        if ($currentQty < 0){
+            header('location:/Cart/index');
+        }
+        $cart->decrease();
+        header('location:/Cart/index');
     }
 }

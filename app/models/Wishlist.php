@@ -3,14 +3,8 @@ namespace app\models;
 
 class Wishlist extends \app\core\Model{
 
-	public function __construct(){
-		parent::__construct();
-	}
-
-
 	public function insert(){
-		$SQL = "INSERT INTO wishlist(profile_id, product_id) VALUES (:profile_id, :product_id)
-		ON DUPLICATE KEY UPDATE wishlist_id=wishlist_id";
+		$SQL = "INSERT INTO wishlist(profile_id, product_id) VALUES (:profile_id, :product_id)";
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute(['profile_id'=>$this->profile_id,
 						'product_id'=>$this->product_id]);
