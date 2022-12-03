@@ -27,13 +27,13 @@ class User extends \app\core\Model{
 	}
 
 	public function insert(){
-		if ($this->isValid()){
+		// if ($this->isValid()){
 			$SQL = "INSERT INTO user(email, password_hash) VALUES (:email, :password_hash)";
 			$STMT = self::$_connection->prepare($SQL);
 			$STMT->execute(['email'=>$this->email,
 						'password_hash'=>$this->password_hash]);
 			return self::$_connection->lastInsertId();
-		}
+		// }
 	}
 
 	public function updatePassword(){
