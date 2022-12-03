@@ -6,16 +6,19 @@
 </head>
 
 <body>
-<section class="vh-100 gradient-custom">
+<section class="vh-100">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+        <div class="card gradient-custom text-white" style="border-radius: 1rem;">
           <div class="card-body p-5 text-center">
 
-            <div class="mb-md-5 mt-md-4 pb-5">
-
-              <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
+            <div class="mb-md-1 mt-md-4 pb-5">
+            <div class="text-center">
+                  <img src="https://github.com/knikop/HorizonTeamProject/blob/main/horizonImages/horizon.png?raw=true"
+                    style="width: 134px;" alt="logo">
+                </div>
+              <h2 class="fw mb-2 text-uppercase">Register</h2>
               <p class="text-white-50 mb-5"> </p>
             <form action='' method='post'>
               <div class="form-outline form-white mb-4">
@@ -24,7 +27,7 @@
               </div>
 
               <div class="form-outline form-white mb-4">
-                <input type="email" id="typeEmailX" class="form-control form-control-lg" name="password"/>
+                <input type="password" id="typeEmailX" class="form-control form-control-lg" name="password"/>
                 <label class="form-label" for="typeEmailX">Password</label>
               </div>
 
