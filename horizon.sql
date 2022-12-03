@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2022 at 06:36 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Generation Time: Dec 03, 2022 at 03:03 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,28 +33,18 @@ CREATE TABLE `cart` (
   `profile_id` int(11) NOT NULL,
   `qty` int(11) NOT NULL,
   `status` enum('cart','checkout') NOT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `cart`
 --
 
 INSERT INTO `cart` (`cart_id`, `product_id`, `profile_id`, `qty`, `status`) VALUES
-(157, 1, 5, 1, 'cart');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cart_detail`
---
-
-CREATE TABLE `cart_detail` (
-  `cart_detail_id` int(11) NOT NULL,
-  `cart_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `qty` int(11) NOT NULL,
-  `total_price` decimal(6,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(157, 1, 5, 2, 'checkout'),
+(158, 1, 4, 2, 'cart'),
+(159, 2, 4, 2, 'cart'),
+(160, 2, 5, 1, 'checkout'),
+(162, 6, 5, 1, 'checkout');
 
 -- --------------------------------------------------------
 
@@ -69,7 +59,7 @@ CREATE TABLE `product` (
   `quantity` int(11) NOT NULL,
   `description` varchar(100) NOT NULL,
   `image` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product`
@@ -98,7 +88,7 @@ CREATE TABLE `profile` (
   `zipcode` varchar(6) NOT NULL,
   `state` varchar(100) NOT NULL,
   `image` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `profile`
@@ -121,7 +111,7 @@ CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password_hash` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
@@ -144,16 +134,16 @@ CREATE TABLE `wishlist` (
   `wishlist_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `profile_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `wishlist`
 --
 
 INSERT INTO `wishlist` (`wishlist_id`, `product_id`, `profile_id`) VALUES
-(5, 1, 4),
-(6, 1, 4),
-(7, 1, 7);
+(10, 1, 4),
+(11, 2, 4),
+(12, 6, 5);
 
 --
 -- Indexes for dumped tables
@@ -166,14 +156,6 @@ ALTER TABLE `cart`
   ADD PRIMARY KEY (`cart_id`),
   ADD KEY `product_id` (`product_id`),
   ADD KEY `cart_to_profile` (`profile_id`);
-
---
--- Indexes for table `cart_detail`
---
-ALTER TABLE `cart_detail`
-  ADD PRIMARY KEY (`cart_detail_id`),
-  ADD KEY `cart_detail_to_order` (`cart_id`),
-  ADD KEY `order_detail_to_product` (`product_id`);
 
 --
 -- Indexes for table `product`
@@ -210,13 +192,7 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `cart_detail`
---
-ALTER TABLE `cart_detail`
-  MODIFY `cart_detail_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -240,7 +216,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
@@ -251,13 +227,6 @@ ALTER TABLE `wishlist`
 --
 ALTER TABLE `cart`
   ADD CONSTRAINT `cart_to_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
-
---
--- Constraints for table `cart_detail`
---
-ALTER TABLE `cart_detail`
-  ADD CONSTRAINT `cart_detail_to_order` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`cart_id`),
-  ADD CONSTRAINT `order_detail_to_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
 
 --
 -- Constraints for table `profile`
