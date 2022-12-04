@@ -9,7 +9,7 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-md navbar bg-light">
+	<nav class="navbar navbar-expand-md navbar" style="background-color: #D5DAE8;">
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         
 	<ul class="navbar-nav mr-auto">
@@ -24,14 +24,8 @@
 	</ul>
 
     </div>
-    <div class="mx-auto order-0 w-100">
-        <a class="navbar-brand mx-6 h2 fs-2" href="/Product/index" style="
-			position: absolute;
-			width: 100%;
-			left: 0;
-			top: 8;
-			text-align: center;
-			margin: auto;">
+    <div class="mx-auto order-0" style="position:relative; width: 75%; top: 2; margin: auto;">
+        <a class="navbar-brand mx-6 h2 fs-2" href="/Product/index" >
 			<img src="https://github.com/knikop/HorizonTeamProject/blob/main/horizonImages/horizonlogo.png?raw=true"
 			 alt="" style="width: 60px; padding-right: 10px;">HORIZON</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
@@ -40,7 +34,12 @@
     </div>
     <div class="navbar-collapse collapse dual-collapse2 my-2 my-lg-0 text-dark">
         <ul class="navbar-nav px-5" style="display: flex;">
-		
+        <li class="nav-item" style="display: flex;">
+			<a class="nav-link fs-5" href="/Product/index"><button type="button" class="btn btn-outline border-0 fs-5">Home</button></a>
+            </li>
+            <li class="nav-item" style="display: flex;">
+			<a class="nav-link" href="/Profile/allProfile"><button type="button" class="btn btn-outline border-0 fs-5" style="white-space: nowrap; overflow: hidden;">Search Profiles</button></a>
+            </li>
 			<?php
 		if (!isset($_SESSION['user_id'])) { ?>
 			<li class="nav-item" style="display: flex;">

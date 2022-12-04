@@ -38,8 +38,10 @@ class Wishlist extends \app\core\Controller{
 
 	public function getProfileWishlist($profile_id) {
         $wishlist = new \app\models\Wishlist();
+        $profile = new \app\models\Profile();
+        $profiles = $profile->get($profile_id);
         $wishlists = $wishlist->get($profile_id);
-        $this->view('Wishlist/profileWishlist', $wishlists);
+        $this->view('Wishlist/profileWishlist', $wishlists, $profiles);
     }
 
     #[\app\filters\Login]

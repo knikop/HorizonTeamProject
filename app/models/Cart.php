@@ -73,4 +73,12 @@ class Cart extends \app\core\Model{
 		$STMT->execute(['qty'=>$this->qty,
 						'cart_id'=>$this->cart_id]);
 	}
+
+	public function increaseQty($profile_id, $product_id){
+		$SQL = "UPDATE cart SET qty=qty+:qty WHERE profile_id=:profile_id AND product_id=:product_id";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['qty'=>$this->qty,
+						'profile_id'=>$profile_id,
+						'product_id'=>$product_id]);
+	}
 }

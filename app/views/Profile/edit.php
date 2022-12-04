@@ -9,11 +9,20 @@ if(isset($_GET['message'])){
 <?php
 }
 ?>
+<body>
+	
 
 <div class="container py-3">
-<form action='' method="post">
-<img class="rounded-circle border border-dark" src="/images/<?= $data->image ?>" style="width:300px;">
-
+<form action='' method="post" enctype='multipart/form-data'>
+<div class="img-circle" style="position: relative; padding: 0;">
+	<img id="blah" class="img-fluid rounded-circle border border-dark"
+ 	src="/images/<?= $data->image ?>"
+	style="width:300px; height:300px; overflow:hidden; object-fit: cover;">
+	<label for="imgInp" >
+	<span style="position: absolute;"><i class="bi bi-save fs-3" style="cursor: pointer;"></i></span>
+	</label>
+	<input id="imgInp" type="file" name="image" style="display: none;">
+	</div>
 	<h1>Edit your Profile</h1>
 <p>Provide the information requested in the form below.</p>
 	<div class="form-group">
@@ -31,9 +40,10 @@ if(isset($_GET['message'])){
     <div class="form-group">
 		<label class="col-sm-6  col-form-label">State:<input class='form-control' type="text" name="state" placeholder="state" value='<?=htmlspecialchars($data->state)?>'/></label>
 	</div>
-	<input type='submit' name='action' value="Edit" class='btn btn-primary' />
+	<input type='submit' name='action' value="Edit" class='btn btn-outline-primary' />
 </form>
 </div>
+</body>
 
 <style>
 .container {
@@ -42,7 +52,6 @@ if(isset($_GET['message'])){
   margin: auto;
   text-align: center;
 }
-
 
 .form-center form {
   top: 50%;
@@ -62,4 +71,38 @@ if(isset($_GET['message'])){
 label {
 	text-align: left;
 }
+
+.img-circle {
+  border-radius: 50%;
+}
+img.img-circle {
+  background:black;
+}
+span {
+ left:0;
+ text-align:center;
+ width:100%;
+ background:rgba(255,255,255,0.5);
+ bottom:0;
+ padding:10px 0;
+}
+.img-thumbnail {
+display:inline-block;
+ }
+.img-thumbnail > div {
+display:inline-block;
+overflow: hidden;
+height: 140px;
+border-radius:50%;
+}
 </style>
+
+<script>
+     picture.onchange = evt => {
+        const [file] = picture.files
+        if (file) {
+          pic_preview.src = URL.createObjectURL(file)
+        }
+      }
+
+</script>

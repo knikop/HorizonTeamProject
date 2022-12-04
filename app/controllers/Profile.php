@@ -42,7 +42,14 @@ class Profile extends \app\core\Controller{
 			$profile->city = $_POST['city'];
             $profile->zipcode = $_POST['zipcode'];
             $profile->state = $_POST['state'];
-			$profile->update();
+			$filename = $this->saveFile($_FILES['image']);
+			if($filename){
+				$profile->image = $filename;
+				$profile->update();
+				header('location:/Profile/index');
+			}else{
+				header('location:/Profile/index');
+			}
 			header('location:/Profile/index');
 		}else{
 			$this->view('Profile/edit', $profile);

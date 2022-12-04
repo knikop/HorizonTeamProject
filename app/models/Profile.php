@@ -54,7 +54,7 @@ class Profile extends \app\core\Model{
 	}
 
 	public function update(){
-			$SQL = "UPDATE profile SET fullname=:fullname, address=:address, city=:city, zipcode=:zipcode, state=:state
+			$SQL = "UPDATE profile SET fullname=:fullname, address=:address, city=:city, zipcode=:zipcode, state=:state, image=:image
 			WHERE profile_id=:profile_id";
 			$STMT = self::$_connection->prepare($SQL);
 			$STMT->execute(['fullname'=>$this->fullname,
@@ -62,17 +62,9 @@ class Profile extends \app\core\Model{
 							'city'=>$this->city,
 							'zipcode'=>$this->zipcode,
 							'state'=>$this->state,
-							// 'image'=>$this->image,
+							'image'=>$this->image,
 							'profile_id'=>$this->profile_id]);
 	}
-
-	public function updateImage(){
-		$SQL = "UPDATE profile SET image=:image
-		WHERE profile_id=:profile_id";
-		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['image'=>$this->image,
-						'profile_id'=>$this->profile_id]);
-}
 
 	public function search($searchTerm){
 		$SQL = "SELECT * FROM profile WHERE fullname LIKE :searchTerm";

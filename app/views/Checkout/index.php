@@ -237,7 +237,7 @@
             </li>
           </ul>
 
-          <button type="button" class="btn btn-primary btn-lg btn-block">
+          <button type="button" class="btn btn-outline-success btn-lg btn-block">
             Make purchase
           </button>
         </div>

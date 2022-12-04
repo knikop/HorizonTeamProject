@@ -6,7 +6,6 @@ class Product extends \app\core\Controller{
 	public function index(){
 		$product = new \app\models\Product();
 		$products = $product->getAll(isset($_GET['sort'])? $_GET['sort']: null);
-		$cart = new \app\models\Cart();
 		$this->view('Product/index', $products);
 	}
 

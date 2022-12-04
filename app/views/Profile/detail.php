@@ -18,13 +18,9 @@ if(isset($_SESSION['profile_id']) && $_SESSION['profile_id'] == $data->profile_i
 	echo "<br>";
 	echo '<a href="/Profile/edit">Edit my profile</a>';
 	echo "<br>";
-	echo '<a href="/Profile/editAvatar">Edit my avatar</a>';
-	echo "<br>";
 	echo '<a href="/User/update">Update password</a>';
 	echo "<br>";
 	echo '<a href="/Wishlist/index">Wishlist</a>';
-	echo "<br>";
-	echo '<a href="/Wishlist/profileWishlist">Create Wishlist</a>';
 }
 ?>
             <div class="row mb-4">
@@ -39,4 +35,4 @@ if(isset($_SESSION['profile_id']) && $_SESSION['profile_id'] == $data->profile_i
                 </div>
               </div>
             </div>
-<a href="/User/twofasetup">Update password</a>
+<a href="/User/twofasetup">two fa</a>

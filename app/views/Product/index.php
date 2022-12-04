@@ -34,7 +34,7 @@ foreach ($data as $item) {
     </div>
     </div>
     <br>
-    <style>
+<style>
     .card-img-top {
     width: 100%;
     height: 18vw;
