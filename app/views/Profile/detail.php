@@ -1,9 +1,11 @@
 <?php $this->view('navbar'); ?>
-<h1><?=$data?></h1>
+
 <a href="/Wishlist/index"></a>
 
 <?php
 if(isset($_SESSION['profile_id']) && $_SESSION['profile_id'] == $data->profile_id){
+	
+	include 'detail-design.php';
 	echo "<img src='/images/$data->image'>";
 	echo "<br>";
 	echo $data->address;
@@ -25,5 +27,16 @@ if(isset($_SESSION['profile_id']) && $_SESSION['profile_id'] == $data->profile_i
 	echo '<a href="/Wishlist/profileWishlist">Create Wishlist</a>';
 }
 ?>
-
+            <div class="row mb-4">
+              <div class="col">
+                <div class="form-outline">
+                 <img src="" alt="">
+              </div>
+              <div class="col">
+                <div class="form-outline">
+                  <input type="text" id="form7Example2" class="form-control" />
+                  <label class="form-label" for="form7Example2">Credit card number</label>
+                </div>
+              </div>
+            </div>
 <a href="/User/twofasetup">Update password</a>

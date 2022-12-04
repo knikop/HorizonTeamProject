@@ -68,6 +68,6 @@ class Cart extends \app\core\Controller{
         $cart = new \app\models\Cart();
         $cart->status = 'checkout';
         $cart->updateStatus($_SESSION['profile_id']);
-        header('location:/Cart/index');
+        header('location:/Checkout/index');
     }
 }

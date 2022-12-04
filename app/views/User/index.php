@@ -17,8 +17,10 @@
                 <div class="card-body p-md-5 mx-md-4">
 
                   <div class="text-center">
+                    <a href="/Product/index">
                     <img src="https://github.com/knikop/HorizonTeamProject/blob/main/horizonImages/horizon.png?raw=true" style="width: 185px;" alt="logo">
-                    <h4 class="mt-1 mb-5 pb-1">Gaming Store</h4>
+                    </a>
+                    <h4 class="mt-1 mb-5 pb-1" style="text-decoration: none;">Gaming Store</h4>
                   </div>
 
                   <form action='' method='post'>
@@ -35,7 +37,7 @@
                     </div>
 
                     <div class="text-center pt-1 mb-5 pb-1">
-                      <a><button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 " type="submit" name="action">Login</button></a>
+                      <a><button class="btn btn-outline-dark btn-block fa-lg mb-3 " type="submit" name="action">Login</button></a>
                     </div>
 
                     <?php

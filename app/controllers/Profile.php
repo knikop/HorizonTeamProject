@@ -8,7 +8,7 @@ class Profile extends \app\core\Controller{
 	public function index(){
 		$profile = new \app\models\Profile();
 		$profile = $profile->get($_SESSION['profile_id']);
-		$this->view('Profile/detail', $profile);
+		$this->view('Profile/detail', $profile, $_SESSION['email']);
 	}
 
 	public function allProfile(){
