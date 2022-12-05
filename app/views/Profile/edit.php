@@ -23,22 +23,22 @@ if(isset($_GET['message'])){
 	</label>
 	<input id="imgInp" type="file" name="image" style="display: none;">
 	</div>
-	<h1>Edit your Profile</h1>
-<p>Provide the information requested in the form below.</p>
+	<h1><?=_("Edit your Profile") ?></h1>
+<p><?=_("Provide the information requested in the form below.") ?></p>
 	<div class="form-group">
-		<label class="col-sm-6  col-form-label">Full name:<input class='form-control' type="text" name="fullname" placeholder="full name" value='<?=htmlspecialchars($data->fullname)?>'/></label>
+		<label class="col-sm-6  col-form-label"><?=_("Full name:") ?><input class='form-control' type="text" name="fullname" placeholder="full name" value='<?=htmlspecialchars($data->fullname)?>'/></label>
 	</div>
 	<div class="form-group">
-		<label class="col-sm-6 col-form-label">Address:<input class='form-control' type="text" name="address" placeholder="address" value='<?=htmlspecialchars($data->address)?>'/></label>
+		<label class="col-sm-6 col-form-label"><?=_("Address:") ?><input class='form-control' type="text" name="address" placeholder="address" value='<?=htmlspecialchars($data->address)?>'/></label>
 	</div>
 	<div class="form-group">
-		<label class="col-sm-6  col-form-label">City:<input class='form-control' type="text" name="city" placeholder="city" value='<?=htmlspecialchars($data->city)?>'/></label>
+		<label class="col-sm-6  col-form-label"><?=_("City:") ?><input class='form-control' type="text" name="city" placeholder="city" value='<?=htmlspecialchars($data->city)?>'/></label>
 	</div>
     <div class="form-group">
-		<label class="col-sm-6  col-form-label">Zipcode:<input class='form-control' type="text" name="zipcode" placeholder="zipcode" value='<?=htmlspecialchars($data->zipcode)?>'/></label>
+		<label class="col-sm-6  col-form-label"><?=_("Zipcode:") ?><input class='form-control' type="text" name="zipcode" placeholder="zipcode" value='<?=htmlspecialchars($data->zipcode)?>'/></label>
 	</div>
     <div class="form-group">
-		<label class="col-sm-6  col-form-label">State:<input class='form-control' type="text" name="state" placeholder="state" value='<?=htmlspecialchars($data->state)?>'/></label>
+		<label class="col-sm-6  col-form-label"><?=_("State:") ?><input class='form-control' type="text" name="state" placeholder="state" value='<?=htmlspecialchars($data->state)?>'/></label>
 	</div>
 	<input type='submit' name='action' value="Edit" class='btn btn-outline-primary' />
 </form>

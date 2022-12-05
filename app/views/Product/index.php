@@ -5,8 +5,8 @@
                 Sort Price
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" name="sort">
-                <li><a class="dropdown-item" href="/Product/index?sort=asc" value="sort-asc">asc</a></li>
-                <li><a class="dropdown-item" href="/Product/index?sort=desc" value="sort-desc">desc</a></li>
+                <li><a class="dropdown-item" href="/Product/index?sort=asc" value="sort-asc"><?=_("asc") ?></a></li>
+                <li><a class="dropdown-item" href="/Product/index?sort=desc" value="sort-desc"><?=_("desc") ?></a></li>
             </ul>
         </div>
 

@@ -35,4 +35,4 @@ if(isset($_SESSION['profile_id']) && $_SESSION['profile_id'] == $data->profile_i
                 </div>
               </div>
             </div>
-<a href="/User/twofasetup">two fa</a>
+<a href="/User/twofasetup"><?=_("two fa") ?></a>

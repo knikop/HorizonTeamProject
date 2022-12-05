@@ -10,11 +10,11 @@
 
 <div class="dropdown" style="margin-left: 30px; margin-bottom: 30px">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-        sort by username
+        <?=_("sort by username") ?>
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" name="sort">
-        <li><a class="dropdown-item" href="/Profile/allProfile?sort=asc" value="sort-asc">asc</a></li>
-        <li><a class="dropdown-item" href="/Profile/allProfile?sort=desc" value="sort-desc">desc</a></li>
+        <li><a class="dropdown-item" href="/Profile/allProfile?sort=asc" value="sort-asc"><?=_("asc") ?></a></li>
+        <li><a class="dropdown-item" href="/Profile/allProfile?sort=desc" value="sort-desc"><?=_("desc") ?></a></li>
     </ul>
 </div>
 	
