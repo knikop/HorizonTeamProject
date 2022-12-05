@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2022 at 03:03 AM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Generation Time: Dec 05, 2022 at 01:51 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,9 @@ INSERT INTO `cart` (`cart_id`, `product_id`, `profile_id`, `qty`, `status`) VALU
 (158, 1, 4, 2, 'cart'),
 (159, 2, 4, 2, 'cart'),
 (160, 2, 5, 1, 'checkout'),
-(162, 6, 5, 1, 'checkout');
+(162, 6, 5, 1, 'checkout'),
+(163, 1, 6, 1, 'checkout'),
+(164, 2, 6, 1, 'checkout');
 
 -- --------------------------------------------------------
 
@@ -55,7 +57,7 @@ INSERT INTO `cart` (`cart_id`, `product_id`, `profile_id`, `qty`, `status`) VALU
 CREATE TABLE `product` (
   `product_id` int(11) NOT NULL,
   `product_name` varchar(100) NOT NULL,
-  `cost_price` int(11) NOT NULL,
+  `cost_price` decimal(6,2) NOT NULL,
   `quantity` int(11) NOT NULL,
   `description` varchar(100) NOT NULL,
   `image` varchar(100) NOT NULL
@@ -66,12 +68,16 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `product_name`, `cost_price`, `quantity`, `description`, `image`) VALUES
-(1, '[Gaming Chair]', 500, 50, '[A gaming chair]', 'https://multimedia.bbycastatic.ca/multimedia/products/250x250/158/15833/15833808.jpeg'),
-(2, '[Alienware Gaming mouse]', 169, 200, '[A gaimng mouse]', 'https://5.imimg.com/data5/SELLER/Default/2021/2/CP/RF/OY/15867386/71w88xegvkl-sl1500--250x250.jpg'),
-(3, '[Among Us]', 5, 500, '[Find the imposter]', 'https://www.freegamesland.net/wp-content/uploads/2021/01/Among-Us-s.jpg'),
-(4, '[Apex Legends]', 0, 300, '[Champions!!!!!!]', 'https://www.filmmusicsite.com/images/covers/normal/72120.jpg'),
-(5, '[Call of Duty: MW2 Vault Edition]', 120, 800, '[The newest and highly anticipated call of duty game]', 'https://i.ytimg.com/vi/y1XPSvIb9OI/mqdefault.jpg'),
-(6, '[Call of Duty: MW2]', 90, 900, '[The newest and highly anticipated call of duty game]', 'https://www.videogameschronicle.com/files/2022/05/modern-warfare-2-artwork-c-320x200.jpg');
+(1, 'Gaming Chair', '500.99', 50, 'A gaming chair', 'https://multimedia.bbycastatic.ca/multimedia/products/250x250/158/15833/15833808.jpeg'),
+(2, 'Alienware Gaming mouse', '169.00', 200, 'A gaming mouse', 'https://5.imimg.com/data5/SELLER/Default/2021/2/CP/RF/OY/15867386/71w88xegvkl-sl1500--250x250.jpg'),
+(3, 'Doom', '89.99', 500, 'RIP AND TEAR', 'https://static.wikia.nocookie.net/doom/images/6/65/DoomEternal_Cover.png/revision/latest/smart/width'),
+(4, 'Among US', '5.00', 300, 'Find the Imposter!', 'https://www.freegamesland.net/wp-content/uploads/2021/01/Among-Us-s.jpg'),
+(5, 'Call of Duty: MW2 Vault Edition', '120.00', 800, 'The newest and highly anticipated call of duty game', 'https://i.ytimg.com/vi/y1XPSvIb9OI/mqdefault.jpg'),
+(6, 'Call of Duty: MW2', '89.99', 900, 'The newest and highly anticipated call of duty game', 'https://www.videogameschronicle.com/files/2022/05/modern-warfare-2-artwork-c-320x200.jpg'),
+(7, 'Assassin\'s Creed Unity', '69.99', 150, 'Vive La Revolution!!!', 'https://www.mercurynews.com/wp-content/uploads/2016/08/20141112__CCT-VIDGAME-11141.jpg?w=247'),
+(8, 'Assassins Creed ', '79.99', 100, 'The Assassin\'s Creed ever released', 'https://assets-prd.ignimgs.com/2021/12/30/assassins-creed-1-button-1640894408253.jpg?width=250&crop='),
+(9, 'Halo: The Master Chief Collection', '49.99', 25, 'A Collection of all the best Halo games', 'https://upload.wikimedia.org/wikipedia/en/a/a3/Halo_TMCC_KeyArt_Vert_2019.png'),
+(10, 'The Witcher 3: The Wild hunt', '56.99', 69, 'The lattest game in the Witcher game series', 'https://www.soundtrack.net/img/album/30588.jpg');
 
 -- --------------------------------------------------------
 
@@ -118,7 +124,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `email`, `password_hash`) VALUES
-(4, 'admin@email.com', '$2y$10$UH4ZdHFifD/7myRWKmefzuhZ2XCZJxxlEuosUV8sCt0TDvkKOPWaq'),
+(4, 'admin@email.com', '$2y$10$EwmeAmMLnIQCHr.5LdfE.e9t4WKdJ5KfCL41IohuJe8MYACGwZ3Ke'),
 (5, 'saqib@email.com', '$2y$10$B2ikISf37xJK57FqBHGCLetMaSUlV5yI2W5XyodQM2fKSSyLAv3Ei'),
 (6, '2003knikop@gmail.com', '$2y$10$vwJdsIXtaGg4YOCc/wjiF.rQr.V5PBqwSsFbKJDBA4F2G39Dxcvki'),
 (7, 'darthkn@gmail.com', '$2y$10$qN9acKWnFFXk2P4.kzwmI.5M6iUczW1n3MzwEPG9sBrTtAwiqyiha'),
@@ -141,9 +147,10 @@ CREATE TABLE `wishlist` (
 --
 
 INSERT INTO `wishlist` (`wishlist_id`, `product_id`, `profile_id`) VALUES
-(10, 1, 4),
 (11, 2, 4),
-(12, 6, 5);
+(12, 6, 5),
+(13, 1, 6),
+(14, 2, 6);
 
 --
 -- Indexes for dumped tables
@@ -192,13 +199,13 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `profile`
@@ -216,7 +223,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
