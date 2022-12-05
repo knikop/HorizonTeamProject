@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>Login</title>
+  <title><?=_("Login") ?></title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </head>
@@ -20,24 +20,24 @@
                     <a href="/Product/index">
                     <img src="https://github.com/knikop/HorizonTeamProject/blob/main/horizonImages/horizon.png?raw=true" style="width: 185px;" alt="logo">
                     </a>
-                    <h4 class="mt-1 mb-5 pb-1" style="text-decoration: none;">Gaming Store</h4>
+                    <h4 class="mt-1 mb-5 pb-1" style="text-decoration: none;"><?=_("Gaming Store") ?></h4>
                   </div>
 
                   <form action='' method='post'>
-                    <p>Please login to your account</p>
+                    <p><?=_("Please login to your account") ?></p>
 
                     <div class="form-outline mb-4">
                       <input type="email" id="form2Example11" class="form-control" placeholder="email address" name="email" />
-                      <label class="form-label" for="form2Example11">Email</label>
+                      <label class="form-label" for="form2Example11"><?=_("Email") ?></label>
                     </div>
 
                     <div class="form-outline mb-4">
                       <input type="password" id="form2Example22" class="form-control" name="password" />
-                      <label class="form-label" for="form2Example22">Password</label>
+                      <label class="form-label" for="form2Example22"><?=_("Password") ?></label>
                     </div>
 
                     <div class="text-center pt-1 mb-5 pb-1">
-                      <a><button class="btn btn-outline-dark btn-block fa-lg mb-3 " type="submit" name="action">Login</button></a>
+                      <a><button class="btn btn-outline-dark btn-block fa-lg mb-3 " type="submit" name="action"><?=_("Login") ?></button></a>
                     </div>
 
                     <?php
@@ -51,19 +51,20 @@
                     ?>
 
                     <div class="d-flex align-items-center justify-content-center pb-4">
-                      <p class="mb-0 me-2">Don't have an account?</p>
-                      <a href="/User/register"><button type="button" class="btn btn-outline-danger">Create new</button></a>
+                      <p class="mb-0 me-2"><?=_("Don't have an account?") ?></p>
+                      <a href="/User/register"><button type="button" class="btn btn-outline-danger"><?=_("Create new") ?></button></a>
                     </div>
                   </form>
                 </div>
               </div>
               <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
                 <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                  <h4 class="mb-4">We are more than just a company</h4>
-                  <p class="small mb-0" style="text-align: center;">Gaming is an industry that grows fast, with new exciting games,
+                  <h4 class="mb-4"><?=_("We are more than just a company") ?></h4>
+                  <p class="small mb-0" style="text-align: center;">
+                  <?=_("Gaming is an industry that grows fast, with new exciting games,
                     more advanced graphics, and richer storylines produced every day. And as games improve,
                     so does gaming website design. The internet is full of stunning game website examples and
-                    countless gaming website ideas that are worth exploring.Horizon will be here to assist you guys the simplest manner possible</p>
+                    countless gaming website ideas that are worth exploring.Horizon will be here to assist you guys the simplest manner possible") ?></p>
                 </div>
               </div>
             </div>

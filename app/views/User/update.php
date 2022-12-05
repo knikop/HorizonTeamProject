@@ -26,27 +26,27 @@
                   <img src="https://github.com/knikop/HorizonTeamProject/blob/main/horizonImages/horizon.png?raw=true"
                     style="width: 134px;" alt="logo">
                 </div>
-              <h2 class="fw mb-2 text-uppercase">Update Password</h2>
+              <h2 class="fw mb-2 text-uppercase"><?=_("Update Password") ?></h2>
               <p class="text-white-50 mb-5"> </p>
             <form action='' method='post'>
               <div class="form-outline form-white mb-4">
                 <input type="password" name="old_password" id="typePasswordX" class="form-control form-control-lg" name="email"/>
-                <label class="form-label" for="typePasswordX">Old password</label>
+                <label class="form-label" for="typePasswordX"><?=_("Old password") ?></label>
               </div>
 
               <div class="form-outline form-white mb-4">
                 <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" name="password"/>
-                <label class="form-label" for="typeEmailX">Password</label>
+                <label class="form-label" for="typeEmailX"><?=_("Password") ?></label>
               </div>
 
               <div class="form-outline form-white mb-4">
                 <input type="password" name="password_confirm" id="typePasswordX" class="form-control form-control-lg" name="password_confirm"/>
-                <label class="form-label" for="typePasswordX">Confirm Password</label>
+                <label class="form-label" for="typePasswordX"><?=_("Confirm Password") ?></label>
               </div>
 
               <!-- <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p> -->
 
-              <a><button class="btn btn-outline-light btn-lg px-5" type="submit" name="action">Update</button></a>
+              <a><button class="btn btn-outline-light btn-lg px-5" type="submit" name="action"><?=_("Update") ?></button></a>
             </form>
             </div>
             <br>
