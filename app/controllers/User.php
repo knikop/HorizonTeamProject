@@ -54,28 +54,27 @@ class User extends \app\core\Controller{
 		}
 	}
 
-	#[\app\filters\Login]
-	public function update(){
+		#[\app\filters\Login]
+		public function update(){
+		$user = new \App\models\User();
+		$user = $user->get($_SESSION['email']);
 		if(isset($_POST['action'])){
-			$user = new \app\models\User();
-			$user = $user->get($_SESSION['email']);
-			if(password_verify($_POST['old_password'],$user->password_hash)){
-				if($_POST['password'] == $_POST['password_confirm']){
-					$user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+			if(!password_verify($_POST['old_password'], $user->password_hash)){
+				header('location:/User/update?error=Wrong current password!');	
+			} else {	
+				if($_POST['password'] == $_POST['password_confirm'] && !empty($_POST['password'])){
+					$user->password_hash = password_hash($_POST['password'],PASSWORD_DEFAULT);
 					$user->updatePassword();
-					header('location:/Product/index');
-				}else{
-					header('location:/User/update');
-				}
-			}else{
-				header('location:/User/update');
+					header('location:/Profile/index');
+				}else
+					header('location:/User/update?error=New passwords do not match or new password is empty!');
 			}
 		}else{
 			$this->view('User/update');
 		}
 	}
 
-	function check2fa(){
+	public function check2fa(){
 		if(!isset($_SESSION['user_id'])){
 			header('location:/User/index');
 			return;
