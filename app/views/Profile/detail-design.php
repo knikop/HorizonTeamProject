@@ -39,7 +39,7 @@
             </div>
             <div class="col ml-auto  mt-4 mt-md-0 mx-5 px-5 py-3" style="top: 100px;">
             <div class="dropdown" style="margin-left: 30px; margin-bottom: 30px">
-            <button class="btn btn-secondary btn-dark d-flex justify-content-center border-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 40px; height: 40px; align-items: center; border-radius: 40px;">
+            <button class="btn btn-secondary btn-dark d-flex justify-content-center " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 40px; height: 40px; align-items: center; border-radius: 40px;">
             <i class="bi bi-gear-fill" style="font-size: 25px;"></i>
             </button>
             <ul class="dropdown-menu my-3" aria-labelledby="dropdownMenuButton1" name="sort">

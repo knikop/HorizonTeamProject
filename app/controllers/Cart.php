@@ -64,10 +64,16 @@ class Cart extends \app\core\Controller{
 
     #[\app\filters\Login]
 	#[\app\filters\Profile]
-    public function checkout() {
+    public function checkout($sum) {
         $cart = new \app\models\Cart();
         $cart->status = 'checkout';
         $cart->updateStatus($_SESSION['profile_id']);
+        $this->view('Checkout/index', $sum);
+    }
+    
+    #[\app\filters\Login]
+	#[\app\filters\Profile]
+    public function shipped(){
         header('location:/Checkout/index');
     }
 }

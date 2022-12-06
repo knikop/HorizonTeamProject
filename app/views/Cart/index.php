@@ -44,10 +44,11 @@
             $sum += $price;
         }
         ?>
+        
     </div>
 
 <ul class=list-group list-group-flush>
     <li class=list-group-item style="text-style=bold;"><strong>Subtotal: <?= $sum ?>$</strong></li>
-    <a class='btn btn-outline-success' href='/Cart/checkout' class=card-link>Checkout</a>
+    <?php ?><a class='btn btn-outline-success' href='/Cart/checkout/<?= $sum?>' class=card-link>Checkout</a>
 </ul>
 </div>
