@@ -24,7 +24,7 @@
 	</ul>
 
     </div>
-    <div class="mx-auto order-0" style="position:relative; width: 75%; top: 2; margin: auto;">
+    <div class="mx-auto order-0" style="position:relative; width: 56%; top: 2; margin: auto; display: flex-around;">
         <a class="navbar-brand mx-6 h2 fs-2" href="/Product/index" >
 			<img src="https://github.com/knikop/HorizonTeamProject/blob/main/horizonImages/horizonlogo.png?raw=true"
 			 alt="" style="width: 60px; padding-right: 10px;">HORIZON</a>

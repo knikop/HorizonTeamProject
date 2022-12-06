@@ -1,6 +1,7 @@
 <?php $this->view('navbar'); ?>
 <br>
 <div class="container py-5">
+<h1 class="text-center" style="margin-bottom: 40px;">My cart</h1>
     <div class="row" style="padding: 10px; gap: 15px;">
         <?php
         $sum = 0;
