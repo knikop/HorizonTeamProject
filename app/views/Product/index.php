@@ -1,5 +1,17 @@
 <?php $this->view('navbar'); ?>
 <br>
+<<<<<<< HEAD
+=======
+<div class="dropdown" style="margin-left: 30px; margin-bottom: 30px">
+            <button class="btn btn-secondary dropdown-toggle bg bg-primary" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Sort Price
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" name="sort">
+                <li><a class="dropdown-item" href="/Product/index?sort=asc" value="sort-asc"><?=_("asc") ?></a></li>
+                <li><a class="dropdown-item" href="/Product/index?sort=desc" value="sort-desc"><?=_("desc") ?></a></li>
+            </ul>
+        </div>
+>>>>>>> 77cbb501633249cd61b31d53a961cfe722eea160
 
 
 <div class="container">
