@@ -22,29 +22,6 @@ class Model{
 		}
 	}
 
-	public function isValid(){
-		//extract the meta data from the object
-		$reflection = new \ReflectionObject($this);
-		//find the object properties
-		$classProperties = $reflection->getProperties(); //reflectionProperties
-		//for each property find the attributes
-		foreach ($classProperties as $property) {
-			$propertyAttributes = $property->getAttributes();
-			//for each attribute run the test
-			foreach ($propertyAttributes as $attribute) {
-				//make an object for this attribute
-				$test = $attribute->newInstance();
-				//run the method that executes the test and get the result
-				if(!$test->isValidData($property->getValue($this))){
-					echo "false";
-					
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
 	protected function validate($method){//aplication of all validators on the object properties
 		self::$input = $this;
 		self::$validation = new ValidationResultSet();

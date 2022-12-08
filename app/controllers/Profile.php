@@ -56,25 +56,25 @@ class Profile extends \app\core\Controller{
 		}
 	}
 
-	#[\app\filters\Login]
-	#[\app\filters\Profile]
-	public function editAvatar(){
-		$profile = new \app\models\Profile();
-		$profile = $profile->get($_SESSION['profile_id']);
-		if(isset($_POST['action'])){
-			$filename = $this->saveFile($_FILES['image']);
-			if($filename){
-				$profile->image = $filename;
-				$profile->updateImage();
-				header('location:/Profile/index');
-			}else{
-				header('location:/Profile/editAvatar', $profile);
-			}
-			header('location:/Profile/index');
-		}else{
-			$this->view('Profile/editAvatar', $profile);
-		}
-	}
+	// #[\app\filters\Login]
+	// #[\app\filters\Profile]
+	// public function editAvatar(){
+	// 	$profile = new \app\models\Profile();
+	// 	$profile = $profile->get($_SESSION['profile_id']);
+	// 	if(isset($_POST['action'])){
+	// 		$filename = $this->saveFile($_FILES['image']);
+	// 		if($filename){
+	// 			$profile->image = $filename;
+	// 			$profile->updateImage();
+	// 			header('location:/Profile/index');
+	// 		}else{
+	// 			header('location:/Profile/editAvatar', $profile);
+	// 		}
+	// 		header('location:/Profile/index');
+	// 	}else{
+	// 		$this->view('Profile/editAvatar', $profile);
+	// 	}
+	// }
 
 
 	#[\app\filters\Login]
@@ -91,9 +91,9 @@ class Profile extends \app\core\Controller{
 			if($filename){
 				$profile->image = $filename;
 				$_SESSION['profile_id'] = $profile->insert();
-				header('location:/Profile/index');
+				header('location:/Profile/index?message=Your profile has been successfuly created!');
 			}else{
-				header('location:/Profile/create');
+				header('location:/Profile/create?error=Please fill all the required information first.');
 			}
 		}else{
 			$this->view('Profile/create');

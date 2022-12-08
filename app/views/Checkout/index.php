@@ -186,7 +186,7 @@
                 </label>
               </div>
             </div>
-            <!-- 2 column grid layout with text inputs for the first and last names -->
+
             <div class="row mb-4">
               <div class="col">
                 <div class="form-outline">

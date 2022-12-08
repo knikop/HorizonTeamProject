@@ -3,7 +3,7 @@ namespace app\core;
 
 class ValidationResultSet{
 	private $isValid;
-	private $results;
+	private $results;//array(fieldName=>ValidationResult)
 	
 	public function __construct(){
 		$this->isValid = true;

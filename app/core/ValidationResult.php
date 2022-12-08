@@ -20,6 +20,7 @@ class ValidationResult{
 		return $this->errorMessage;
 	}
 
+	//There may be more than one validator on a field
 	public function add(ValidationResult $more){
 		$this->isValid = $this->isValid && $more->isValid;
 		$this->errorMessage .= $more->errorMessage;

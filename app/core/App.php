@@ -5,6 +5,7 @@ class App{
 	private $controller = 'Product';
 	private $method = 'index';
 
+
 	public function __construct(){
 		//echo $_GET['url'];
 		//TODO: replace this echo with the routing algorithm
@@ -32,20 +33,21 @@ class App{
 			unset($url[1]);
 		}
 
-		//access filtering
-		//attribute discovery
+		//access filtering here to prevent running code requiring privilege
+		//object to read the class properties
 		$reflection = new \ReflectionObject($this->controller);
+		//get the attributes
+		$classAttributes = $reflection->getAttributes();//returns the attributes applied on the class
+		$methodAttributes = $reflection->getMethod($this->method)->getAttributes(); //return the attributes applied on the specific method
 
-		$classAttributes = $reflection->getAttributes();
-		$methodAttributes = $reflection->getMethod($this->method)->getAttributes();
+		//merge the arrays
+		$attributes = array_values(array_merge($classAttributes,$methodAttributes));
 
-		$attributes = array_values(array_merge($classAttributes, $methodAttributes));
-
-		//running the attribute class methods
-		foreach ($attributes as $attribute) {
-			$filter = $attribute->newInstance();//making the object of class, e.g., Login
-			if($filter->execute())
-				return;
+		foreach($attributes as $attribute){
+			$filter = $attribute->newInstance();//make a new object of that filter class
+			if($filter->execute()){
+				return;//cut the execution if the user does not belong there
+			}
 		}
 
 		//...while passing all other parts as arguments
@@ -53,7 +55,6 @@ class App{
 		$params = $url ? array_values($url) : [];
 		call_user_func_array([ $this->controller, $this->method ], $params);
 	}
-
 	public static function parseUrl(){
 		if(isset($_GET['url']))//get url exists
 		{
@@ -64,5 +65,16 @@ class App{
 		}
 	}
 
-
+		//filter and package the request
+		public function getRequest(){
+			$request = ['get'=>[], 'post'=>[]];
+			foreach($_GET as $key=>$value){
+				$request['get'][$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+			}
+			$post = [];
+			foreach ($_POST as $key => $value) {
+				$request['post'][$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+			}
+			return $request;
+		}
 }

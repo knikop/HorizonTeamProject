@@ -46,7 +46,7 @@
                 <li><a class="dropdown-item" href="/Profile/edit">Edit my profile</a></li>
                 <li><a class="dropdown-item" href="/Wishlist/index">View my wishlist</a></li>
                 <li><a class="dropdown-item" href="/User/update">Update password</a></li>
-                <li><a class="dropdown-item" href="/User/twofasetup">Setup 2FA</a></li>
+                <li><a class="dropdown-item" href="/User/setup2fa">Setup 2FA</a></li>
             </ul>
         </div>
         

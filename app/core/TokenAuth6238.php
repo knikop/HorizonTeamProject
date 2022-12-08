@@ -74,13 +74,16 @@ namespace app\core;
       return $url;
     }
 
-    public static function getLocalCodeUrl($username,$domain, $secretkey, $issuer) {
+		public static function getLocalCodeUrl($username,
+			$domain, $secretkey, $issuer) {
 			$url = "otpauth://totp/";
 			$url .= "$username@$domain";
 			$url .= "%3Fsecret%3D$secretkey";
 			$url .= "%26issuer%3D". rawurlencode($issuer);
 			return $url;
 		}
+
+    
 
     public static function generateRandomClue($length = 16) {
   		$b32 	= "234567QWERTYUIOPASDFGHJKLZXCVBNM";
