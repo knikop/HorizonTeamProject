@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2022 at 01:51 AM
+-- Generation Time: Dec 09, 2022 at 02:25 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -32,7 +32,7 @@ CREATE TABLE `cart` (
   `product_id` int(11) NOT NULL,
   `profile_id` int(11) NOT NULL,
   `qty` int(11) NOT NULL,
-  `status` enum('cart','checkout') NOT NULL
+  `status` enum('cart','checkout','shipped') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -41,12 +41,14 @@ CREATE TABLE `cart` (
 
 INSERT INTO `cart` (`cart_id`, `product_id`, `profile_id`, `qty`, `status`) VALUES
 (157, 1, 5, 2, 'checkout'),
-(158, 1, 4, 2, 'cart'),
-(159, 2, 4, 2, 'cart'),
+(158, 1, 4, 2, 'checkout'),
+(159, 2, 4, 2, 'checkout'),
 (160, 2, 5, 1, 'checkout'),
 (162, 6, 5, 1, 'checkout'),
-(163, 1, 6, 1, 'checkout'),
-(164, 2, 6, 1, 'checkout');
+(165, 7, 4, 2, 'checkout'),
+(166, 10, 4, 1, 'checkout'),
+(167, 8, 6, 1, 'checkout'),
+(168, 6, 6, 1, 'checkout');
 
 -- --------------------------------------------------------
 
@@ -60,7 +62,7 @@ CREATE TABLE `product` (
   `cost_price` decimal(6,2) NOT NULL,
   `quantity` int(11) NOT NULL,
   `description` varchar(100) NOT NULL,
-  `image` varchar(100) NOT NULL
+  `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -70,7 +72,7 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`product_id`, `product_name`, `cost_price`, `quantity`, `description`, `image`) VALUES
 (1, 'Gaming Chair', '500.99', 50, 'A gaming chair', 'https://multimedia.bbycastatic.ca/multimedia/products/250x250/158/15833/15833808.jpeg'),
 (2, 'Alienware Gaming mouse', '169.00', 200, 'A gaming mouse', 'https://5.imimg.com/data5/SELLER/Default/2021/2/CP/RF/OY/15867386/71w88xegvkl-sl1500--250x250.jpg'),
-(3, 'Doom', '89.99', 500, 'RIP AND TEAR', 'https://static.wikia.nocookie.net/doom/images/6/65/DoomEternal_Cover.png/revision/latest/smart/width'),
+(3, 'Doom', '89.99', 500, 'RIP AND TEAR', 'https://cdn.shopify.com/s/files/1/0004/4099/1797/products/Doom-Edition-Deluxe_340x.jpg?v=1585233724'),
 (4, 'Among US', '5.00', 300, 'Find the Imposter!', 'https://www.freegamesland.net/wp-content/uploads/2021/01/Among-Us-s.jpg'),
 (5, 'Call of Duty: MW2 Vault Edition', '120.00', 800, 'The newest and highly anticipated call of duty game', 'https://i.ytimg.com/vi/y1XPSvIb9OI/mqdefault.jpg'),
 (6, 'Call of Duty: MW2', '89.99', 900, 'The newest and highly anticipated call of duty game', 'https://www.videogameschronicle.com/files/2022/05/modern-warfare-2-artwork-c-320x200.jpg'),
@@ -105,7 +107,8 @@ INSERT INTO `profile` (`profile_id`, `user_id`, `fullname`, `address`, `city`, `
 (5, 5, 'Saqib', 'mangler', 'nigmar', 'y123wa', 'manglerland', '638112afb7023.jpg'),
 (6, 6, 'Konstantinos Nikopoulos', 'y11tr66', 'Montreal', 'H7W 2A', 'Quebec', '6383f7ec0d19e.png'),
 (7, 7, 'darkOne993', 'tiger', 'Laval', 'H8T 4B', 'Quebec', '6384143fe9e1d.jpg'),
-(8, 8, 'abdul', '10113 avenue de cobourg', 'Montreal', 'H1H4W7', 'QC', '63844685715cf.png');
+(8, 8, 'abdul', '10113 avenue de cobourg', 'Montreal', 'H1H4W7', 'QC', '63844685715cf.png'),
+(9, 9, 'jesus', 'heaven', 'vatican', '756 76', 'Rome', '63927bcd25f43.jpg');
 
 -- --------------------------------------------------------
 
@@ -128,7 +131,10 @@ INSERT INTO `user` (`user_id`, `email`, `password_hash`) VALUES
 (5, 'saqib@email.com', '$2y$10$B2ikISf37xJK57FqBHGCLetMaSUlV5yI2W5XyodQM2fKSSyLAv3Ei'),
 (6, '2003knikop@gmail.com', '$2y$10$vwJdsIXtaGg4YOCc/wjiF.rQr.V5PBqwSsFbKJDBA4F2G39Dxcvki'),
 (7, 'darthkn@gmail.com', '$2y$10$qN9acKWnFFXk2P4.kzwmI.5M6iUczW1n3MzwEPG9sBrTtAwiqyiha'),
-(8, 'saqib@hotmail.com', '$2y$10$gCV20OIDKwcJWyEPzra8ieebe7F1q5rpa4SAXh4qCijn8uxnnGl6W');
+(8, 'saqib@hotmail.com', '$2y$10$gCV20OIDKwcJWyEPzra8ieebe7F1q5rpa4SAXh4qCijn8uxnnGl6W'),
+(9, 'malaka@gmail.com', '$2y$10$CaKwSjG03fUOOvfKetASEuacz7CPWGmOpx9KMb8l46FWCQfYagwSq'),
+(10, '1234@email.com', '$2y$10$uCNE6Lrb0uwdfEAgLtgCwu/YLcpBATVRmYhT3n95h6IJNAibaCtb2'),
+(11, 'malka@email.com', '$2y$10$yRBmRF273aI3KwmqtPNDy.3YuTN4OLxPbrHkxhWO0P2dD5nxEZ6G6');
 
 -- --------------------------------------------------------
 
@@ -150,7 +156,12 @@ INSERT INTO `wishlist` (`wishlist_id`, `product_id`, `profile_id`) VALUES
 (11, 2, 4),
 (12, 6, 5),
 (13, 1, 6),
-(14, 2, 6);
+(14, 2, 6),
+(15, 10, 4),
+(16, 4, 6),
+(17, 4, 9),
+(18, 7, 9),
+(19, 3, 9);
 
 --
 -- Indexes for dumped tables
@@ -199,7 +210,7 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -211,19 +222,19 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables

@@ -1,6 +1,6 @@
 <?php $this->view('navbar'); ?>
 <br>
-<h1 class="text-center my-4">My Wishlist</h1>
+<h1 class="text-center my-4"><?=_("My Wishlist") ?></h1>
 <div class="container"> 
     <div class="row" style="padding: 10px; gap: 15px;">
 <?php

@@ -2,10 +2,10 @@
 <br>
 
 <div class="container">
-    <h1 class="text-center" style="margin-bottom: 40px;">All available product</h1>
+    <h1 class="text-center" style="margin-bottom: 40px;"><?=_("All available product") ?></h1>
     <div class="dropdown" style="margin-left: 30px; margin-bottom: 30px">
         <button class="btn btn-secondary dropdown-toggle bg bg-primary" style="align-items: center; justify-content: center; display: flex;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            Sort Price
+        <?=_("Sort Price") ?>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" name="sort">
             <li><a class="dropdown-item" href="/Product/index?sort=asc" value="sort-asc">a - z</a></li>

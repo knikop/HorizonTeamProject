@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?=_("Profile") ?></title>
 </head>
 <body>
-<h1 class="text-center py-5" style="margin-bottom: 40px;">My Profile</h1>
+<h1 class="text-center py-5" style="margin-bottom: 40px;"><?=_("My Profile") ?></h1>
     <div class="container-fluid py-1 px-5" >
         <div class="row" >
             <div class="col d-flex" style="justify-content: center;">
@@ -43,10 +43,10 @@
             <i class="bi bi-gear-fill" style="font-size: 25px;"></i>
             </button>
             <ul class="dropdown-menu my-3" aria-labelledby="dropdownMenuButton1" name="sort">
-                <li><a class="dropdown-item" href="/Profile/edit">Edit my profile</a></li>
-                <li><a class="dropdown-item" href="/Wishlist/index">View my wishlist</a></li>
-                <li><a class="dropdown-item" href="/User/update">Update password</a></li>
-                <li><a class="dropdown-item" href="/User/setup2fa">Setup 2FA</a></li>
+                <li><a class="dropdown-item" href="/Profile/edit"><?=_("Edit my profile") ?></a></li>
+                <li><a class="dropdown-item" href="/Wishlist/index"><?=_("View my wishlist") ?></a></li>
+                <li><a class="dropdown-item" href="/User/update"><?=_("Update password") ?></a></li>
+                <li><a class="dropdown-item" href="/User/setup2fa"><?=_("Setup 2FA") ?></a></li>
             </ul>
         </div>
         

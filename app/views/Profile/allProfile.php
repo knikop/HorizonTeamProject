@@ -1,6 +1,6 @@
 <?php $this->view('navbar'); ?>
 <br>
-<h1 class="text-center" style="margin-bottom: 40px;">All available product</h1>
+<h1 class="text-center" style="margin-bottom: 40px;"><?=_("All Profiles") ?></h1>
 <div class="container">
 <form action="/Profile/search" method="get" style='display:inline-block'>					
 			<div class="input-group">
