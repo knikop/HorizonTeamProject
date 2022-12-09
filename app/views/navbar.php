@@ -35,25 +35,25 @@
     <div class="navbar-collapse collapse dual-collapse2 my-2 my-lg-0 text-dark">
         <ul class="navbar-nav px-5" style="display: flex;">
         <li class="nav-item" style="display: flex;">
-			<a class="nav-link fs-5" href="/Product/index"><button type="button" class="btn btn-outline border-0 fs-5">Home</button></a>
+			<a class="nav-link fs-5" href="/Product/index"><button type="button" class="btn btn-outline border-0 fs-5"><?=_("Home") ?></button></a>
             </li>
             <li class="nav-item" style="display: flex;">
-			<a class="nav-link" href="/Profile/allProfile"><button type="button" class="btn btn-outline border-0 fs-5" style="white-space: nowrap; overflow: hidden;">Search Profiles</button></a>
+			<a class="nav-link" href="/Profile/allProfile"><button type="button" class="btn btn-outline border-0 fs-5" style="white-space: nowrap; overflow: hidden;"><?=_("Search Profiles") ?></button></a>
             </li>
 			<?php
 		if (!isset($_SESSION['user_id'])) { ?>
 			<li class="nav-item" style="display: flex;">
-			<a class="nav-link fs-5" href="/User/index"><button type="button" class="btn btn-outline-dark fs-5">Login</button></a>
+			<a class="nav-link fs-5" href="/User/index"><button type="button" class="btn btn-outline-dark fs-5"><?=_("Login") ?></button></a>
             </li>
 		<?php	} else { ?>
 			<li class="nav-item" style="display: flex;">
-			<a class="nav-link fs-5" style="size: 17px;" href="/Profile/index"><button type="button" class="btn btn-outline border-0 fs-5 px-1">Profile</button></a>
+			<a class="nav-link fs-5" style="size: 17px;" href="/Profile/index"><button type="button" class="btn btn-outline border-0 fs-5 px-1"><?=_("Profile") ?></button></a>
             </li>
 			<li class="nav-item" style="display: flex;">
-			<a class="nav-link fs-5" style="size: 17px;" href="/Cart/index"><button type="button" class="btn btn-outline border-0 fs-5 px-1">Cart</button></a>
+			<a class="nav-link fs-5" style="size: 17px;" href="/Cart/index"><button type="button" class="btn btn-outline border-0 fs-5 px-1"><?=_("Cart") ?></button></a>
             </li>
 			<li class="nav-item" style="display: flex;">
-			<a class="nav-link fs-5" href="/User/Logout"><button type="button" class="btn btn-outline-dark fs-5 px-1">Logout</button></a>
+			<a class="nav-link fs-5" href="/User/Logout"><button type="button" class="btn btn-outline-dark fs-5 px-1"><?=_("Logout") ?></button></a>
             </li>
 		<?php	}
 		?>

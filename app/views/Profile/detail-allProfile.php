@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View U</title>
+    <title><?=_("View Users") ?></title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
                         <h1 class="card-title" style="white-space: nowrap;"><?php echo wordwrap($item->fullname, 20, "<br />") ?></h1>
                         <p class="card-text fs-5"><?= $item->city ?></p>
                         <p class="card-text"><?= $item->state ?></p>
-                        <a href="/Wishlist/getProfileWishlist/<?= $item->profile_id ?>" class="btn btn-primary stretched-link" style="white-space: nowrap; position: absolute; right: 25%; bottom: 15;">View users wishlist</a>
+                        <a href="/Wishlist/getProfileWishlist/<?= $item->profile_id ?>" class="btn btn-primary stretched-link" style="white-space: nowrap; position: absolute; right: 25%; bottom: 15;"><?=_("View users wishlist") ?></a>
                     </div>
                 </div>
             </div>
