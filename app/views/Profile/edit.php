@@ -1,5 +1,7 @@
 <?php $this->view('navbar'); ?>
-
+<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+        </script>
 <?php
 if(isset($_GET['message'])){
 ?>
@@ -15,13 +17,13 @@ if(isset($_GET['message'])){
 <div class="container py-3">
 <form action='' method="post" enctype='multipart/form-data'>
 <div class="img-circle" style="position: relative; padding: 0;">
-	<img id="blah" class="img-fluid rounded-circle border border-dark"
+	<img id="photo" class="img-fluid rounded-circle border border-dark"
  	src="/images/<?= $data->image ?>"
 	style="width:300px; height:300px; overflow:hidden; object-fit: cover;">
-	<label for="imgInp" >
+	<label for="imgPreview" >
 	<span style="position: absolute;"><i class="bi bi-save fs-3" style="cursor: pointer;"></i></span>
 	</label>
-	<input id="imgInp" type="file" name="image" style="display: none;">
+	<input id="imgPreview" type="file" name="image" style="display: none;">
 	</div>
 	<h1><?=_("Edit your Profile") ?></h1>
 <p><?=_("Provide the information requested in the form below.") ?></p>
@@ -98,11 +100,18 @@ border-radius:50%;
 </style>
 
 <script>
-     picture.onchange = evt => {
-        const [file] = picture.files
-        if (file) {
-          pic_preview.src = URL.createObjectURL(file)
-        }
-      }
+	$(document).ready(() => {
+		$("#photo").change(function () {
+			const file = this.files[0];
+			if (file) {
+				let reader = new FileReader();
+				reader.onload = function (event) {
+					$("#imgPreview")
+						.attr("src", event.target.result);
+				};
+				reader.readAsDataURL(file);
+			}
+		});
+	});
 
 </script>

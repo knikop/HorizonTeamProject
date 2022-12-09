@@ -63,9 +63,16 @@ class Cart extends \app\core\Model{
 	public function shipped($profile_id){
 		$SQL = "UPDATE cart SET status=:status WHERE profile_id=:profile_id AND status='checkout'";
 		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['status'=>$this->status,
+		$STMT->execute(['status'=>'shipped',
 						'profile_id'=>$profile_id]);
 	}
+
+	public function deleteShipped($profile_id) {
+		$SQL = "DELETE FROM cart WHERE profile_id=:profile_id AND status='shipped'";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['profile_id'=>$profile_id]);
+	}
+	
 
 	public function add(){
 		$SQL = "UPDATE cart SET qty=:qty+1 WHERE cart_id=:cart_id";

@@ -74,6 +74,9 @@ class Cart extends \app\core\Controller{
     #[\app\filters\Login]
 	#[\app\filters\Profile]
     public function shipped(){
-        header('location:/Checkout/index');
+        $cart = new \app\models\Cart();
+        $cart->shipped($_SESSION['profile_id']);
+        $cart->deleteShipped($_SESSION['profile_id']);
+        header('location:/Product/index');
     }
 }

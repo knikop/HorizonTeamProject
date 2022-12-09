@@ -95,8 +95,7 @@ class User extends \app\core\Controller{
 	public function setup2fa(){
 		if(isset($_POST['action'])){
 			$currentcode = $_POST['currentCode'];
-			if(\app\core\TokenAuth6238::verify(
-				$_SESSION['secretkey'],$currentcode)){
+			if(\app\core\TokenAuth6238::verify($_SESSION['secretkey'],$currentcode)){
 				//the user has verified their proper 2-factor authentication setup
 				$user = new \App\models\User();
 				$user->user_id = $_SESSION['user_id'];

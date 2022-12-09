@@ -23,7 +23,7 @@
             <div class="row mb-4">
               <div class="col">
                 <div class="form-outline">
-                  <input type="text" id="form7Example1" class="form-control" />
+                  <input type="text" id="form7Example1" class="form-control" required/>
                   <label class="form-label" for="form7Example1">First name</label>
                 </div>
               </div>
@@ -253,7 +253,7 @@
         <h5><?php echo uniqid('order-') ?> has been shipped.</h5>
       </div>
       <div class="modal-footer">
-        <a href=<?php echo '/Product/index'?>><button type="button" class="btn btn-primary">Return to home page</button></a>
+        <a href=<?php echo '/Cart/shipped'?>><button type="button" class="btn btn-primary">Return to home page</button></a>
       </div>
     </div>
   </div>

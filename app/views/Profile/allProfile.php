@@ -1,6 +1,7 @@
 <?php $this->view('navbar'); ?>
 <br>
-
+<h1 class="text-center" style="margin-bottom: 40px;">All available product</h1>
+<div class="container">
 <form action="/Profile/search" method="get" style='display:inline-block'>					
 			<div class="input-group">
 			    <input type="search" name='search_term' class="form-control" placeholder="Search..." />
@@ -17,7 +18,7 @@
         <li><a class="dropdown-item" href="/Profile/allProfile?sort=desc" value="sort-desc"><?=_("desc") ?></a></li>
     </ul>
 </div>
-	
+</div>
 <br>
 <div class="container" style="padding: 0;">
     <div class="row row-cols-2 g-3" style="gap: 12px;">

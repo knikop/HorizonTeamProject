@@ -5,6 +5,7 @@
         $profile = new \app\models\Profile();
         $profile = $profile->get($item->profile_id);
         echo "<h1 class=text-center>$profile->fullname's wishlist</h1>";
+        break;
     }
 ?>
 <div class="container"> 
