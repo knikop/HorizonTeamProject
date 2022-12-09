@@ -40,7 +40,8 @@ if(isset($_GET['message'])){
 		<label class="col-sm-6  col-form-label"><?=_("Zipcode:") ?><input class='form-control' type="text" name="zipcode" placeholder="zipcode" value='<?=htmlspecialchars($data->zipcode)?>'/></label>
 	</div>
     <div class="form-group">
-		<label class="col-sm-6  col-form-label"><?=_("State:") ?><input class='form-control' type="text" name="state" placeholder="state" value='<?=htmlspecialchars($data->state)?>'/></label>
+		<label class="col-sm-6  col-form-label"><?=_("State:") ?>
+		<?=htmlspecialchars($data->state)?>/></label>
 	</div>
 	<input type='submit' name='action' value="Edit" class='btn btn-outline-primary' />
 </form>

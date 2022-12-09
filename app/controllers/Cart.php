@@ -68,7 +68,13 @@ class Cart extends \app\core\Controller{
         $cart = new \app\models\Cart();
         $cart->status = 'checkout';
         $cart->updateStatus($_SESSION['profile_id']);
-        $this->view('Checkout/index', $sum);
+        $current = $cart->get($_SESSION['profile_id']);
+        if ($current == null){
+            header('location:/Cart/index?message=Cart is empty.');
+        } else {
+            $this->view('Checkout/index', $sum);
+        }
+        
     }
     
     #[\app\filters\Login]

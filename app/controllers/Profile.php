@@ -56,27 +56,6 @@ class Profile extends \app\core\Controller{
 		}
 	}
 
-	// #[\app\filters\Login]
-	// #[\app\filters\Profile]
-	// public function editAvatar(){
-	// 	$profile = new \app\models\Profile();
-	// 	$profile = $profile->get($_SESSION['profile_id']);
-	// 	if(isset($_POST['action'])){
-	// 		$filename = $this->saveFile($_FILES['image']);
-	// 		if($filename){
-	// 			$profile->image = $filename;
-	// 			$profile->updateImage();
-	// 			header('location:/Profile/index');
-	// 		}else{
-	// 			header('location:/Profile/editAvatar', $profile);
-	// 		}
-	// 		header('location:/Profile/index');
-	// 	}else{
-	// 		$this->view('Profile/editAvatar', $profile);
-	// 	}
-	// }
-
-
 	#[\app\filters\Login]
 	public function create(){
 		if(isset($_POST['action'])){

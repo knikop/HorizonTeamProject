@@ -18,13 +18,19 @@
           <h5 class="mb-0">Biling details</h5>
         </div>
         <div class="card-body">
-          <form>
+          <form class="needs-validation" novalidate>
             <!-- 2 column grid layout with text inputs for the first and last names -->
             <div class="row mb-4">
               <div class="col">
                 <div class="form-outline">
-                  <input type="text" id="form7Example1" class="form-control" required/>
+                  <input type="text" id="validationTooltip01" class="form-control" required/>
                   <label class="form-label" for="form7Example1">First name</label>
+
+                  <label for="validationTooltip01" class="form-label">City</label>
+                  <input type="text" class="form-control" id="validationTooltip01" required>
+                  <div class="invalid-tooltip">
+                    Please provide a valid city.
+                  </div>
                 </div>
               </div>
               <div class="col">
