@@ -1,7 +1,7 @@
 <?php $this->view('navbar'); ?>
 <br>
 <div class="container py-5">
-<h1 class="text-center" style="margin-bottom: 40px;">My cart</h1>
+<h1 class="text-center" style="margin-bottom: 40px;"><?=_("My cart") ?></h1>
     <div class="row" style="padding: 10px; gap: 15px;">
         <?php
         $sum = 0;
@@ -48,7 +48,7 @@
     </div>
 
 <ul class=list-group list-group-flush>
-    <li class=list-group-item style="text-style=bold;"><strong>Subtotal: <?= $sum ?>$</strong></li>
-    <?php ?><a class='btn btn-outline-success' href='/Cart/checkout/<?= $sum?>' class=card-link>Checkout</a>
+    <li class=list-group-item style="text-style=bold;"><strong><?=_("Subtotal: ") ?><?= $sum ?>$</strong></li>
+    <?php ?><a class='btn btn-outline-success' href='/Cart/checkout/<?= $sum?>' class=card-link><?=_("Checkout") ?></a>
 </ul>
 </div>

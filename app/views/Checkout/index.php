@@ -15,7 +15,7 @@
     <div class="col-md-7 mb-4">
       <div class="card mb-4 mx-4">
         <div class="card-header py-3">
-          <h5 class="mb-0">Biling details</h5>
+          <h5 class="mb-0"><?=_("Billing details") ?></h5>
         </div>
         <div class="card-body">
           <form class="needs-validation" novalidate>
@@ -24,19 +24,19 @@
               <div class="col">
                 <div class="form-outline">
                   <input type="text" id="validationTooltip01" class="form-control" required/>
-                  <label class="form-label" for="form7Example1">First name</label>
+                  <label class="form-label" for="form7Example1"><?=_("First name") ?></label>
 
-                  <label for="validationTooltip01" class="form-label">City</label>
+                  <label for="validationTooltip01" class="form-label"><?=_("City") ?></label>
                   <input type="text" class="form-control" id="validationTooltip01" required>
                   <div class="invalid-tooltip">
-                    Please provide a valid city.
+                  <?=_("Please provide a valid city.") ?>
                   </div>
                 </div>
               </div>
               <div class="col">
                 <div class="form-outline">
                   <input type="text" id="form7Example2" class="form-control" />
-                  <label class="form-label" for="form7Example2">Last name</label>
+                  <label class="form-label" for="form7Example2"><?=_("Last name") ?></label>
                 </div>
               </div>
             </div>
@@ -44,24 +44,24 @@
             <!-- Text input -->
             <div class="form-outline mb-4">
               <input type="text" id="form7Example3" class="form-control" />
-              <label class="form-label" for="form7Example3">Email</label>
+              <label class="form-label" for="form7Example3"><?=_("Email") ?></label>
             </div>
 
             <!-- Email input -->
             <div class="form-outline mb-4">
               <input type="email" id="form7Example5" class="form-control" />
-              <label class="form-label" for="form7Example5">Address</label>
+              <label class="form-label" for="form7Example5"><?=_("Address") ?></label>
             </div>
 
             <div class="form-outline mb-4">
               <input type="email" id="form7Example5" class="form-control" />
-              <label class="form-label" for="form7Example5">Address 2 (optional)</label>
+              <label class="form-label" for="form7Example5"><?=_("Address 2 (optional)") ?></label>
             </div>
 
             <!-- Number input -->
             <div class="form-outline mb-4">
               <input type="number" id="form7Example6" class="form-control" />
-              <label class="form-label" for="form7Example6">Phone</label>
+              <label class="form-label" for="form7Example6"><?=_("Phone") ?></label>
             </div>
 
             <div class="row mb-4">
@@ -155,7 +155,7 @@
               <div class="col">
                 <div class="form-outline" style="margin-right: 700px;">
                   <input type="text" id="form7Example1" class="form-control" />
-                  <label class="form-label" for="form7Example1">Zipcode</label>
+                  <label class="form-label" for="form7Example1"><?=_("Zipcode") ?></label>
                 </div>
               </div>
             </div>
@@ -167,7 +167,7 @@
     <div class="col-md-4 mb-4">
       <div class="card mb-4">
         <div class="card-header py-3">
-          <h5 class="mb-0">Credit Card Details</h5>
+          <h5 class="mb-0"><?=_("Credit Card Details") ?></h5>
         </div>
         <div class="card-body">
           <form>
@@ -197,13 +197,13 @@
               <div class="col">
                 <div class="form-outline">
                   <input type="text" id="form7Example1" class="form-control" />
-                  <label class="form-label" for="form7Example1">Name on card <p style="font-size:12px; color:gray;">(fullname displayed on card)</p></label>
+                  <label class="form-label" for="form7Example1"><?=_("Name on card") ?><p style="font-size:12px; color:gray;">(fullname displayed on card)</p></label>
                 </div>
               </div>
               <div class="col">
                 <div class="form-outline">
                   <input type="text" id="form7Example2" class="form-control" />
-                  <label class="form-label" for="form7Example2">Credit card number</label>
+                  <label class="form-label" for="form7Example2"><?=_("Credit card number") ?></label>
                 </div>
               </div>
             </div>
@@ -211,13 +211,13 @@
               <div class="col">
                 <div class="form-outline">
                   <input type="text" id="form7Example1" class="form-control" placeholder="" />
-                  <label class="form-label" for="form7Example1">Expiration Date</label>
+                  <label class="form-label" for="form7Example1"><?=_("Expiration Date") ?></label>
                 </div>
               </div>
               <div class="col">
                 <div class="form-outline">
                   <input type="text" id="form7Example2" class="form-control" />
-                  <label class="form-label" for="form7Example2">CCV</label>
+                  <label class="form-label" for="form7Example2"><?=_("CCV") ?></label>
                 </div>
               </div>
             </div>
@@ -227,24 +227,24 @@
 
       <div class="card mb-4">
         <div class="card-header py-3">
-          <h5 class="mb-0">Summary</h5>
+          <h5 class="mb-0"><?=_("Summary") ?></h5>
         </div>
         <div class="card-body">
           <ul class="list-group list-group-flush">
             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-              Subtotal
+            <?=_("Subtotal") ?>
               <span><?= $data ?>$</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
               <div>
-                <strong>Total amount</strong>
+                <strong><?=_("Total amount") ?></strong>
               </div>
               <span><strong><?php echo round($data * 0.15 + $data, 2); ?>$</strong></span>
             </li>
           </ul>
 
           <a href="#"><button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-success btn-lg">
-            Make purchase
+          <?=_("Make purchase") ?>
           </button></a>
 
 <!-- Modal -->
@@ -252,14 +252,14 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title text-center" id="exampleModalLabel">Purchase Successful</h1>
+        <h1 class="modal-title text-center" id="exampleModalLabel"><?=_("Purchase Successful") ?></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-center">
-        <h5><?php echo uniqid('order-') ?> has been shipped.</h5>
+        <h5><?php echo uniqid('order-') ?> <?=_("has been shipped.") ?></h5>
       </div>
       <div class="modal-footer">
-        <a href=<?php echo '/Cart/shipped'?>><button type="button" class="btn btn-primary">Return to home page</button></a>
+        <a href=<?php echo '/Cart/shipped'?>><button type="button" class="btn btn-primary"><?=_("Return to home page") ?></button></a>
       </div>
     </div>
   </div>
