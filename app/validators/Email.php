@@ -1,4 +1,3 @@
-
 <?php
 namespace app\validators;
 use \app\core\ValidationResult;

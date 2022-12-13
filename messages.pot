@@ -1,0 +1,296 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-13 11:11-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: app/views/Cart/index.php:4
+msgid "My cart"
+msgstr ""
+
+#: app/views/Cart/index.php:51
+msgid "Subtotal: "
+msgstr ""
+
+#: app/views/Cart/index.php:52
+msgid "Checkout"
+msgstr ""
+
+#: app/views/Checkout/index.php:18
+msgid "Billing details"
+msgstr ""
+
+#: app/views/Checkout/index.php:27
+msgid "First name"
+msgstr ""
+
+#: app/views/Checkout/index.php:29
+msgid "City"
+msgstr ""
+
+#: app/views/Checkout/index.php:32
+msgid "Please provide a valid city."
+msgstr ""
+
+#: app/views/Checkout/index.php:39
+msgid "Last name"
+msgstr ""
+
+#: app/views/Checkout/index.php:47 app/views/User/index.php:31
+#: app/views/User/register.php:26
+msgid "Email"
+msgstr ""
+
+#: app/views/Checkout/index.php:53
+msgid "Address"
+msgstr ""
+
+#: app/views/Checkout/index.php:58
+msgid "Address 2 (optional)"
+msgstr ""
+
+#: app/views/Checkout/index.php:64
+msgid "Phone"
+msgstr ""
+
+#: app/views/Checkout/index.php:158
+msgid "Zipcode"
+msgstr ""
+
+#: app/views/Checkout/index.php:170
+msgid "Credit Card Details"
+msgstr ""
+
+#: app/views/Checkout/index.php:200
+msgid "Name on card"
+msgstr ""
+
+#: app/views/Checkout/index.php:206
+msgid "Credit card number"
+msgstr ""
+
+#: app/views/Checkout/index.php:214
+msgid "Expiration Date"
+msgstr ""
+
+#: app/views/Checkout/index.php:220
+msgid "CCV"
+msgstr ""
+
+#: app/views/Checkout/index.php:230
+msgid "Summary"
+msgstr ""
+
+#: app/views/Checkout/index.php:235
+msgid "Subtotal"
+msgstr ""
+
+#: app/views/Checkout/index.php:240
+msgid "Total amount"
+msgstr ""
+
+#: app/views/Checkout/index.php:247
+msgid "Make purchase"
+msgstr ""
+
+#: app/views/Checkout/index.php:255
+msgid "Purchase Successful"
+msgstr ""
+
+#: app/views/Checkout/index.php:259
+msgid "has been shipped."
+msgstr ""
+
+#: app/views/Checkout/index.php:262
+msgid "Return to home page"
+msgstr ""
+
+#: app/views/navbar.php:38
+msgid "Home"
+msgstr ""
+
+#: app/views/navbar.php:41
+msgid "Search Profiles"
+msgstr ""
+
+#: app/views/navbar.php:46 app/views/User/check2fa.php:3
+#: app/views/User/index.php:4 app/views/User/index.php:40
+#: app/views/User/register.php:45
+msgid "Login"
+msgstr ""
+
+#: app/views/navbar.php:50 app/views/Profile/detail-design.php:8
+msgid "Profile"
+msgstr ""
+
+#: app/views/navbar.php:53
+msgid "Cart"
+msgstr ""
+
+#: app/views/navbar.php:56
+msgid "Logout"
+msgstr ""
+
+#: app/views/Product/index.php:5
+msgid "All available product"
+msgstr ""
+
+#: app/views/Product/index.php:8
+msgid "Sort Price"
+msgstr ""
+
+#: app/views/Profile/allProfile.php:3
+msgid "All Profiles"
+msgstr ""
+
+#: app/views/Profile/allProfile.php:14
+msgid "sort by username"
+msgstr ""
+
+#: app/views/Profile/allProfile.php:17
+msgid "asc"
+msgstr ""
+
+#: app/views/Profile/allProfile.php:18
+msgid "desc"
+msgstr ""
+
+#: app/views/Profile/create.php:36 app/views/Profile/edit.php:28
+msgid "Edit your Profile"
+msgstr ""
+
+#: app/views/Profile/create.php:37 app/views/Profile/edit.php:29
+msgid "Provide the information requested in the form below."
+msgstr ""
+
+#: app/views/Profile/create.php:39 app/views/Profile/edit.php:31
+msgid "Full name:"
+msgstr ""
+
+#: app/views/Profile/create.php:42 app/views/Profile/edit.php:34
+msgid "Address:"
+msgstr ""
+
+#: app/views/Profile/create.php:45 app/views/Profile/edit.php:37
+msgid "City:"
+msgstr ""
+
+#: app/views/Profile/create.php:48 app/views/Profile/edit.php:40
+msgid "Zipcode:"
+msgstr ""
+
+#: app/views/Profile/create.php:51 app/views/Profile/edit.php:43
+msgid "State:"
+msgstr ""
+
+#: app/views/Profile/detail-allProfile.php:8
+msgid "View Users"
+msgstr ""
+
+#: app/views/Profile/detail-allProfile.php:22
+msgid "View users wishlist"
+msgstr ""
+
+#: app/views/Profile/detail-design.php:11
+msgid "My Profile"
+msgstr ""
+
+#: app/views/Profile/detail-design.php:46
+msgid "Edit my profile"
+msgstr ""
+
+#: app/views/Profile/detail-design.php:47
+msgid "View my wishlist"
+msgstr ""
+
+#: app/views/Profile/detail-design.php:48
+msgid "Update password"
+msgstr ""
+
+#: app/views/Profile/detail-design.php:49
+msgid "Setup 2FA"
+msgstr ""
+
+#: app/views/User/check2fa.php:24
+msgid "email: "
+msgstr ""
+
+#: app/views/User/check2fa.php:25
+msgid "2fa verification code:"
+msgstr ""
+
+#: app/views/User/index.php:23
+msgid "Gaming Store"
+msgstr ""
+
+#: app/views/User/index.php:27
+msgid "Please login to your account"
+msgstr ""
+
+#: app/views/User/index.php:36 app/views/User/register.php:31
+#: app/views/User/update.php:39
+msgid "Password"
+msgstr ""
+
+#: app/views/User/index.php:54
+msgid "Don't have an account?"
+msgstr ""
+
+#: app/views/User/index.php:55
+msgid "Create new"
+msgstr ""
+
+#: app/views/User/index.php:62
+msgid "We are more than just a company"
+msgstr ""
+
+#: app/views/User/index.php:64
+msgid ""
+"Gaming is an industry that grows fast, with new exciting games,\n"
+"                    more advanced graphics, and richer storylines produced "
+"every day. And as games improve,\n"
+"                    so does gaming website design. The internet is full of "
+"stunning game website examples and\n"
+"                    countless gaming website ideas that are worth exploring."
+"Horizon will be here to assist you guys the simplest manner possible"
+msgstr ""
+
+#: app/views/User/register.php:21 app/views/User/register.php:41
+msgid "Register"
+msgstr ""
+
+#: app/views/User/register.php:36 app/views/User/update.php:44
+msgid "Confirm Password"
+msgstr ""
+
+#: app/views/User/register.php:45
+msgid "Already have an account?"
+msgstr ""
+
+#: app/views/User/update.php:29
+msgid "Update Password"
+msgstr ""
+
+#: app/views/User/update.php:34
+msgid "Old password"
+msgstr ""
+
+#: app/views/User/update.php:49
+msgid "Update"
+msgstr ""
+
+#: app/views/Wishlist/index.php:3
+msgid "My Wishlist"
+msgstr ""
