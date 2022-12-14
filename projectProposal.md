@@ -1,7 +1,7 @@
 # Project Proposal
 
 ## Team Name:
-- Horizon
+- Team Horizon
 
 ## Team Members:
 - Konstantinos Nikopoulos & Saqib Ahmad Syed
@@ -20,8 +20,8 @@ We will be building a Marketplace/Store Web application were users can find any 
  - As a user, I can create and delete my wishlist (2 features)
  - As a user, I can view my purchase history (1 feature)
  - As a user, I can search for keywords (1 feature) 
- - As a seller, I can track sales of these products (1 feature)
- - As a seller, I can add, modify and remove products for sale (3 features)  
+ - As a user, I can search for profiles of other users (1 feature)
+ - As a user, I can update my password, view my wishlist and sort price (3 features)  
  - As a user, I can checkout my order (1 feature)
 
 
