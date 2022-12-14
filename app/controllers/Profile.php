@@ -48,6 +48,7 @@ class Profile extends \app\core\Controller{
 				$profile->update();
 				header('location:/Profile/index');
 			}else{
+				$profile->update();
 				header('location:/Profile/index');
 			}
 			header('location:/Profile/index');

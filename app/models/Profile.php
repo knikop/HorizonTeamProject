@@ -8,14 +8,6 @@ class Profile extends \app\core\Model{
 	// #[\app\validators\Zipcode]
 	// public $zipcode;
 
-	public function __construct(){
-		parent::__construct();
-	}
-	
-	public function __toString(){
-		return "$this->fullname";
-	}
-
 	public function getAll($sortValue){
 		$SQL = "SELECT * FROM profile";
 		if (isset($sortValue)) {
